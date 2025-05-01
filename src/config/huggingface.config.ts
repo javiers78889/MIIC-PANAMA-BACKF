@@ -20,7 +20,16 @@ export default async function getChatCompletion(instrucciones: string[]) {
         });
         return { [Titulos[index]]: data.choices[0].message.content };
     }));
-    console.log(respuestas);
-    return respuestas;
+    const data= {
+        Pprincipal: respuestas[0].pPrincipal,
+        objPrincipal:respuestas[1].objPrincipal,
+        titulo:respuestas[2].titulo,
+        hipotesis:respuestas[3].hipotesis,
+        hipotesis_nula:respuestas[4].hipotesis_nula
+
+
+    }
+    console.log(data)
+    return data;
 }
 
