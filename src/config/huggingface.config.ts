@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 const InferenceClient = require('@huggingface/inference"')
+//import { InferenceClient } from '@huggingface/inference'
 dotenv.config()
 const Titulos=["pPrincipal","objPrincipal","titulo","hipotesis","hipotesis_nula"]
 
