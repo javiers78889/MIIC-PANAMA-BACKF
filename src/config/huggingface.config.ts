@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-const InferenceClient = require('@huggingface/inference')
+const infer = require('@huggingface/inference')
 
 dotenv.config()
 const Titulos = ["pPrincipal", "objPrincipal", "titulo", "hipotesis", "hipotesis_nula"]
@@ -7,7 +7,7 @@ const Titulos = ["pPrincipal", "objPrincipal", "titulo", "hipotesis", "hipotesis
 
 export default async function getChatCompletion(instrucciones: string[]) {
 
-
+    const { InferenceClient } = infer
     const hf = new InferenceClient(process.env.HUGGINGFACE_API_KEY);
 
     const respuestas = await Promise.all(instrucciones.map(async (n, index) => {
