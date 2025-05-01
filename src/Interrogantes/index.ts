@@ -11,12 +11,14 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
     const instruccionesDos = preguntasSecundarias({ problema, sujeto, contexto })
     const titulo = Titulo({ causa, problema, sujeto, contexto })
     const hipotesis = Hipotesis({ causa, problema, sujeto, contexto })
+    const hipotesisN = HipotesisN({hipotesis})
 
     return [
         instrucciones,
         instruccionesDos,
         titulo,
-        hipotesis
+        hipotesis,
+        hipotesisN
     ]
 
 }
@@ -55,6 +57,15 @@ export const Hipotesis = ({ causa, problema, sujeto, contexto }) => {
             - sujeto de estudio = ${sujeto}
             - contexto = ${contexto}`;
 
+    return instrucciones
+
+}
+export const HipotesisN = ({ hipotesis }) => {
+
+    const instrucciones: string = `Toma mi hipotesis y solo niegala usando la fórmula de manera estricta= articulo(ejemplo:"el,la,los,las")  + causa + no +verbo(ejemplo:"afecta") + problema + sujeto de estudio + contexto .devuelve  sin explicaciones adicionales.no digas "en el contexto" y no agregues palabras de mas.
+        
+            Variables:
+            hipotesis ${hipotesis}`
     return instrucciones
 
 }
