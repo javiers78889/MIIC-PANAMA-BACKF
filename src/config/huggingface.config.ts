@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
-import  {InferenceClient} from '@huggingface/inference'
+import { InferenceClient } from '@huggingface/inference'
 
 dotenv.config()
-const Titulos=["pPrincipal","objPrincipal","titulo","hipotesis","hipotesis_nula"]
+const Titulos = ["pPrincipal", "objPrincipal", "titulo", "hipotesis", "hipotesis_nula"]
 
 
 export default async function getChatCompletion(instrucciones: string[]) {
@@ -18,7 +18,7 @@ export default async function getChatCompletion(instrucciones: string[]) {
                 content: n
             }]
         });
-         return { [Titulos[index]]: data.choices[0].message.content };
+        return { [Titulos[index]]: data.choices[0].message.content };
     }));
     console.log(respuestas);
     return respuestas;
