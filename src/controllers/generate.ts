@@ -16,7 +16,7 @@ class GenerateData {
         const pPrincipal= await getChatCompletion(principal)
 
       
-        res.status(200).json(pPrincipal)
+        res.status(200).json({pPrincipal})
     }
 }
 
