@@ -13,7 +13,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   
   **Variables:**
   - causa = ${causa}
-  -preposicion = ${Preposicion}
+  - preposicion = ${Preposicion}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
@@ -33,7 +33,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   
   **Variables:**
   - causa = ${causa}
-  -preposición = ${Preposicion}
+  - preposición = ${Preposicion}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
@@ -64,8 +64,8 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   
   **Variables:**
   - problema = ${problema}
-  -preposición = ${Preposicion}
-  -verbo = ${verbo}
+  - preposición = ${Preposicion}
+  - verbo = ${verbo}
   - causa = ${causa}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
