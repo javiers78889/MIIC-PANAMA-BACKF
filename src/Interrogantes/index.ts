@@ -1,7 +1,7 @@
 export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
     const instrucciones: string = `
   
-  Genera una **Pregunta Principal de Investigación (P.P.I)** siguiendo esta fórmula estrictamente:
+  Genera una [Pregunta Principal de Investigación (P.P.I)] siguiendo esta fórmula estrictamente:
   ¿ + Interrogante + Causa + Verbo (en tercera persona) + Problema o efecto + Sujeto de estudio + de + Contexto + ?
   
   **Condiciones:**
@@ -21,7 +21,7 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   
   ---
   
-  Genera una **Hipótesis** siguiendo estrictamente esta fórmula:  
+  Genera una [Hipótesis] siguiendo estrictamente esta fórmula:  
   artículo (ejemplo: "el", "la", "los", "las") + causa + verbo + problema + sujeto de estudio + contexto.
   
   **Condiciones:**
@@ -38,7 +38,7 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   
   ---
   
-  Genera una **Hipótesis nula** usando la fórmula de manera estricta:  
+  Genera una [Hipótesis nula] usando la fórmula de manera estricta:  
   artículo (ejemplo: "el", "la", "los", "las") + causa + no + verbo (ejemplo: "afecta") + problema + sujeto de estudio + contexto.
   
   **Condiciones:**
@@ -48,7 +48,7 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   
   ---
   
-  Genera un **Objetivo General** siguiendo estrictamente esta fórmula:  
+  Genera un [Objetivo General] siguiendo estrictamente esta fórmula:  
   Verbo (usa taxonomía de Bloom) + causa + preposición + problema + sujeto de estudio + "de" + contexto.
   
   **Condiciones:**
@@ -74,7 +74,7 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   
   ---
   
-  Genera un **Título** siguiendo esta fórmula de manera estricta:  
+  Genera un [Título] siguiendo esta fórmula de manera estricta:  
   causa + y + problema + sujeto de estudio + contexto.
   
   **Condiciones:**
@@ -88,6 +88,8 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
   
+
+  a todo esto, hazle saltos de linea en react \n para que no se vea todo pegado.
   `;
   
     return instrucciones;
