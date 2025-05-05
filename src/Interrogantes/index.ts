@@ -1,4 +1,4 @@
-export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
+export const preguntaPrincipal = ({ causa,verbo,Preposicion, problema, sujeto, contexto }) => {
     const instrucciones: string = `
   
   Genera una [Pregunta Principal de Investigación (P.P.I)] siguiendo esta fórmula estrictamente:
@@ -13,6 +13,7 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   
   **Variables:**
   - causa = ${causa}
+  -verbo = ${verbo}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
@@ -32,6 +33,7 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   
   **Variables:**
   - causa = ${causa}
+  -verbo = ${verbo}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
@@ -63,11 +65,10 @@ export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
   - Definir, Desarrollar, Mostrar, Calcular, Comparar, Contrastar, Explicar, Exponer, Discriminar, Efectuar, Establecer, Orientar, Presentar,
   - Fundamentar, Identificar, Reproducir, Situar, Probar, Proponer, Relatar, Crear, Demostrar, Valuar, Categorizar, Concretar, Evaluar, Examinar, Fomentar.
   
-  **Preposiciones recomendadas:**
-  - para, sobre, mediante, a través de, con base en, respecto a, en función de, en relación con
   
   **Variables:**
   - problema = ${problema}
+  -preposición = ${Preposicion}
   - causa = ${causa}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
