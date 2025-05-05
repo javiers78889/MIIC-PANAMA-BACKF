@@ -1,71 +1,95 @@
 export const preguntaPrincipal = ({ causa, problema, sujeto, contexto }) => {
-
-    const instrucciones: string = `Genera una pregunta principal siguiendo esta fórmula de manera estricta: ¿Interrogante + causa + preposición + problema + sujeto de estudio + contexto? Solo devuelve la pregunta completa, sin explicaciones adicionales.no digas "en el contexto" y no agregues palabras de mas.
-        
-            Variables:
-            - causa = ${causa}
-            - problema = ${problema}
-            - sujeto de estudio = ${sujeto}
-            - contexto = ${contexto}`;
-
-    const instruccionesDos = preguntasSecundarias({ problema, sujeto, contexto })
-    const titulo = Titulo({ causa, problema, sujeto, contexto })
-    const hipotesis = Hipotesis({ causa, problema, sujeto, contexto })
-    const hipotesisN = HipotesisN({hipotesis})
-
-    return [
-        instrucciones,
-        instruccionesDos,
-        titulo,
-        hipotesis,
-        hipotesisN
-    ]
-
-}
-export const preguntasSecundarias = ({ problema, sujeto, contexto }) => {
-
-    const instrucciones: string = `Genera un objetivo general siguiendo esta fórmula de manera estricta: Verbo(usa taxonomia de bloom) + problema + preposición + problema + sujeto de estudio + contexto Solo devuelve la pregunta completa, sin explicaciones adicionales.no digas "en el contexto"y no agregues palabras de mas.
-        
-            Variables:
-            - problema = ${problema}
-            - sujeto de estudio = ${sujeto}
-            - contexto = ${contexto}`;
-
-    return instrucciones
-
-}
-export const Titulo = ({ causa, problema, sujeto, contexto }) => {
-
-    const instrucciones: string = `Genera un titulo siguiendo esta fórmula de manera estricta= causa + y + problema + sujeto de estudio + contexto .devuelve  sin explicaciones adicionales.no digas "en el contexto" y no agregues palabras de mas.
-        
-            Variables:
-            - causa = ${causa}
-            -problema= ${problema}
-            - sujeto de estudio = ${sujeto}
-            - contexto = ${contexto}`;
-
-    return instrucciones
-
-}
-export const Hipotesis = ({ causa, problema, sujeto, contexto }) => {
-
-    const instrucciones: string = `Genera una hipotesis siguiendo esta fórmula de manera estricta= articulo(ejemplo:"el,la,los,las")  + causa + verbo(ejemplo:"afecta") + problema + sujeto de estudio + contexto .devuelve  sin explicaciones adicionales.no digas "en el contexto" y no agregues palabras de mas.
-        
-            Variables:
-            - causa = ${causa}
-            -problema= ${problema}
-            - sujeto de estudio = ${sujeto}
-            - contexto = ${contexto}`;
-
-    return instrucciones
-
-}
-export const HipotesisN = ({ hipotesis }) => {
-
-    const instrucciones: string = `Toma mi hipotesis y solo niegala usando la fórmula de manera estricta= articulo(ejemplo:"el,la,los,las")  + causa + no +verbo(ejemplo:"afecta") + problema + sujeto de estudio + contexto .devuelve  sin explicaciones adicionales.no digas "en el contexto" y no agregues palabras de mas.
-        
-            Variables:
-            hipotesis ${hipotesis}`
-    return instrucciones
-
-}
+    const instrucciones: string = `
+  
+  Genera una **Pregunta Principal de Investigación (P.P.I)** siguiendo esta fórmula estrictamente:
+  ¿ + Interrogante + Causa + Verbo (en tercera persona) + Problema o efecto + Sujeto de estudio + de + Contexto + ?
+  
+  **Condiciones:**
+  - Usa una interrogante cerrada: ¿Por qué?, ¿Cómo?, ¿Qué impacto tiene?, ¿Qué relación existe entre?, ¿En qué medida?
+  - Usa un verbo adecuado según el tipo de relación (ej: influye en, afecta, determina, se relaciona con, impacta en).
+  - No incluyas explicaciones ni texto adicional.
+  - No uses expresiones como "en el contexto de".
+  - No agregues palabras que no estén explícitamente en las variables.
+  
+  **Variables:**
+  - causa = ${causa}
+  - problema = ${problema}
+  - sujeto de estudio = ${sujeto}
+  - contexto = ${contexto}
+  
+  Devuelve únicamente la pregunta completa.
+  
+  ---
+  
+  Genera una **Hipótesis** siguiendo estrictamente esta fórmula:  
+  artículo (ejemplo: "el", "la", "los", "las") + causa + verbo + problema + sujeto de estudio + contexto.
+  
+  **Condiciones:**
+  - No incluyas explicaciones adicionales.
+  - No uses la expresión "en el contexto".
+  - No agregues palabras que no estén explícitamente en las variables.
+  - Usa el mismo verbo que en la Pregunta Principal.
+  
+  **Variables:**
+  - causa = ${causa}
+  - problema = ${problema}
+  - sujeto de estudio = ${sujeto}
+  - contexto = ${contexto}
+  
+  ---
+  
+  Genera una **Hipótesis nula** usando la fórmula de manera estricta:  
+  artículo (ejemplo: "el", "la", "los", "las") + causa + no + verbo (ejemplo: "afecta") + problema + sujeto de estudio + contexto.
+  
+  **Condiciones:**
+  - Devuelve sin explicaciones adicionales.
+  - No digas "en el contexto".
+  - No agregues palabras de más.
+  
+  ---
+  
+  Genera un **Objetivo General** siguiendo estrictamente esta fórmula:  
+  Verbo (usa taxonomía de Bloom) + causa + preposición + problema + sujeto de estudio + "de" + contexto.
+  
+  **Condiciones:**
+  - Usa un verbo adecuado según el tipo de relación.
+  - Utiliza una preposición adecuada según el tipo de relación.
+  - No incluyas explicaciones ni texto adicional.
+  - No uses expresiones como "en el contexto de".
+  - No agregues palabras que no estén explícitamente en las variables.
+  
+  **Verbos permitidos:**
+  - Analizar, Diseñar, Enumerar, Oponer, Planear, Describir, Formular, Generar, Inferir, Revelar, Tasar, Trazar, Producir, Reconstruir, Replicar,
+  - Definir, Desarrollar, Mostrar, Calcular, Comparar, Contrastar, Explicar, Exponer, Discriminar, Efectuar, Establecer, Orientar, Presentar,
+  - Fundamentar, Identificar, Reproducir, Situar, Probar, Proponer, Relatar, Crear, Demostrar, Valuar, Categorizar, Concretar, Evaluar, Examinar, Fomentar.
+  
+  **Preposiciones recomendadas:**
+  - para, sobre, mediante, a través de, con base en, respecto a, en función de, en relación con
+  
+  **Variables:**
+  - problema = ${problema}
+  - causa = ${causa}
+  - sujeto de estudio = ${sujeto}
+  - contexto = ${contexto}
+  
+  ---
+  
+  Genera un **Título** siguiendo esta fórmula de manera estricta:  
+  causa + y + problema + sujeto de estudio + contexto.
+  
+  **Condiciones:**
+  - Devuelve sin explicaciones adicionales.
+  - No digas "en el contexto".
+  - No agregues palabras de más.
+  
+  **Variables:**
+  - causa = ${causa}
+  - problema = ${problema}
+  - sujeto de estudio = ${sujeto}
+  - contexto = ${contexto}
+  
+  `;
+  
+    return instrucciones;
+  }
+  

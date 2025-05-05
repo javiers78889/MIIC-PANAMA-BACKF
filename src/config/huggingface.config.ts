@@ -5,31 +5,22 @@ dotenv.config()
 const Titulos = ["pPrincipal", "objPrincipal", "titulo", "hipotesis", "hipotesis_nula"]
 
 
-export default async function getChatCompletion(instrucciones: string[]) {
+export default async function getChatCompletion(instrucciones: string) {
 
     const { InferenceClient } = infer
     const hf = new InferenceClient(process.env.HUGGINGFACE_API_KEY);
 
-    const respuestas = await Promise.all(instrucciones.map(async (n, index) => {
+
         const data = await hf.chatCompletion({
             model: 'meta-llama/Llama-3.3-70B-Instruct',
             messages: [{
                 role: "user",
-                content: n
+                content: instrucciones
             }]
         });
-        return { [Titulos[index]]: data.choices[0].message.content };
-    }));
-    const data= {
-        Pprincipal: respuestas[0].pPrincipal,
-        objPrincipal:respuestas[1].objPrincipal,
-        titulo:respuestas[2].titulo,
-        hipotesis:respuestas[3].hipotesis,
-        hipotesis_nula:respuestas[4].hipotesis_nula
-
-
-    }
+ 
+ 
     console.log(data)
-    return data;
+    return data.choices[0].message.content;
 }
 
