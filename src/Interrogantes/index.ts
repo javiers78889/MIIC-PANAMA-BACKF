@@ -1,8 +1,8 @@
-export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto, contexto }) => {
+export const preguntaPrincipal = ({ causa, verbo, preposicion, problema, sujeto, contexto }) => {
   const instrucciones: string = `
   
   Genera una [Pregunta Principal de Investigación (P.P.I)] siguiendo esta fórmula estrictamente:
-  ¿ + Interrogante + Causa + preposicion + Problema o efecto + Sujeto de estudio + de + Contexto + ?
+  ¿ + Interrogante + causa + preposicion + problema + Sujeto de estudio + de + Contexto + ?
   
   **Condiciones:**
   - Usa una interrogante cerrada: ¿Por qué?, ¿Cómo?, ¿Qué impacto tiene?, ¿Qué relación existe entre?, ¿En qué medida?
@@ -13,7 +13,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   
   **Variables:**
   - causa = ${causa}
-  - preposicion = ${Preposicion}
+  - preposicion = ${preposicion}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
@@ -23,7 +23,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   ---
   
   Genera una [Hipótesis] siguiendo estrictamente esta fórmula:  
-  artículo (ejemplo: "el", "la", "los", "las") + causa + preposicion + problema + sujeto de estudio + contexto.
+  artículo (ejemplo: "el", "la", "los", "las") + causa + preposicion + problema + sujeto de estudio + de + contexto.
   
   **Condiciones:**
   - No incluyas explicaciones adicionales.
@@ -33,7 +33,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   
   **Variables:**
   - causa = ${causa}
-  - preposición = ${Preposicion}
+  - preposición = ${preposicion}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
   - contexto = ${contexto}
@@ -41,7 +41,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   ---
   
   Genera una [Hipótesis nula] usando la fórmula de manera estricta:  
-  artículo (ejemplo: "el", "la", "los", "las") + causa + no + preposicion  + problema + sujeto de estudio + contexto.
+  artículo (ejemplo: "el", "la", "los", "las") + causa + no + preposicion  + problema + sujeto de estudio + de + contexto.
   
   **Condiciones:**
   - Devuelve sin explicaciones adicionales.
@@ -51,7 +51,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   ---
   
   Genera un [Objetivo General] siguiendo estrictamente esta fórmula:  
-  Verbo (usa taxonomía de Bloom) + causa + preposición + problema + sujeto de estudio + "de" + contexto.
+  verbo + causa + preposición + problema + sujeto de estudio + "de" + contexto.
   
   **Condiciones:**
   - Usa un verbo adecuado según el tipo de relación.
@@ -64,7 +64,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   
   **Variables:**
   - problema = ${problema}
-  - preposición = ${Preposicion}
+  - preposición = ${preposicion}
   - verbo = ${verbo}
   - causa = ${causa}
   - sujeto de estudio = ${sujeto}
@@ -73,7 +73,7 @@ export const preguntaPrincipal = ({ causa, verbo, Preposicion, problema, sujeto,
   ---
   
   Genera un [Título] siguiendo esta fórmula de manera estricta:  
-  causa + y + problema + sujeto de estudio + contexto.
+  causa + y + problema + sujeto de estudio + de + contexto.
   
   **Condiciones:**
   - Devuelve sin explicaciones adicionales.
