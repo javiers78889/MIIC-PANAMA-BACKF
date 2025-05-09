@@ -1,8 +1,8 @@
-export const preguntaPrincipal = ({ causa, verbo, preposicion, problema, sujeto, contexto }) => {
+export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, problema, sujeto, contexto }) => {
   const instrucciones: string = `
   
   Genera una [Pregunta Principal de Investigación (P.P.I)] siguiendo esta fórmula estrictamente:
-  ¿ + Interrogante + causa + preposicion + problema + Sujeto de estudio + de + Contexto + ?
+  ¿ + interrogante + causa + preposicion + problema + Sujeto de estudio + de + Contexto + ?
   
   **Condiciones:**
   - Usa una interrogante cerrada: ¿Por qué?, ¿Cómo?, ¿Qué impacto tiene?, ¿Qué relación existe entre?, ¿En qué medida?
@@ -13,6 +13,7 @@ export const preguntaPrincipal = ({ causa, verbo, preposicion, problema, sujeto,
   
   **Variables:**
   - causa = ${causa}
+  --interrogante=${interrogante}
   - preposicion = ${preposicion}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
