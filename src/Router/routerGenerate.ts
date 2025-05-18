@@ -14,7 +14,8 @@ router.post('/',
     body('sujeto').notEmpty().withMessage('El sujeto no puede ir vacio'),
     body('contexto').notEmpty().withMessage('El contexto no puede ir vacio'),
     body('verbo').notEmpty().withMessage('El verbo no puede ir vacio'),
-    body('preposicion').notEmpty().withMessage('La preposicio no puede ir vacio'),
+    body('preposicion').notEmpty().withMessage('La preposicion no puede ir vacio'),
+    body('interrogante').notEmpty().withMessage('La interrogante no puede ir vacia'),
     handleInputErrors,
     GenerateData.sendData)
 

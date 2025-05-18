@@ -5,7 +5,7 @@ export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, prob
   ¿ + interrogante + causa + preposicion + problema + Sujeto de estudio + de + Contexto + ?
   
   **Condiciones:**
-  - Usa una interrogante cerrada: ¿Por qué?, ¿Cómo?, ¿Qué impacto tiene?, ¿Qué relación existe entre?, ¿En qué medida?
+  - Usa una interrogante cerrada: ¿Por qué?, ¿Cómo?.
   - Usa un verbo adecuado según el tipo de relación (ej: influye en, afecta, determina, se relaciona con, impacta en).
   - No incluyas explicaciones ni texto adicional.
   - No uses expresiones como "en el contexto de".
