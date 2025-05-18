@@ -9,6 +9,7 @@ export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, prob
   - Usa un verbo adecuado según el tipo de relación (ej: influye en, afecta, determina, se relaciona con, impacta en).
   - No incluyas explicaciones ni texto adicional.
   - No uses expresiones como "en el contexto de".
+  - Dale sentido a la hipótesis ,pero sigue la estructura de la formula
   - No agregues palabras que no estén explícitamente en las variables.
   
   **Variables:**
@@ -30,6 +31,7 @@ export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, prob
   - No incluyas explicaciones adicionales.
   - No uses la expresión "en el contexto".
   - No agregues palabras que no estén explícitamente en las variables.
+  - Dale sentido a la hipótesis ,pero sigue la estructura de la formula
   - Usa el mismo verbo que en la Pregunta Principal.
   
   **Variables:**
@@ -46,8 +48,10 @@ export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, prob
   
   **Condiciones:**
   - Devuelve sin explicaciones adicionales.
+  - Utiliza un articulo adecuado según el tipo de relación.
   - No digas "en el contexto".
   - No agregues palabras de más.
+   
   
   ---
   
@@ -56,7 +60,6 @@ export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, prob
   
   **Condiciones:**
   - Usa un verbo adecuado según el tipo de relación.
-  - Utiliza una preposición adecuada según el tipo de relación.
   - No incluyas explicaciones ni texto adicional.
   - No uses expresiones como "en el contexto de".
   - No agregues palabras que no estén explícitamente en las variables.
