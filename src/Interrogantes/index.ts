@@ -5,16 +5,14 @@ export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, prob
   ¿ + interrogante + causa + preposicion + problema + Sujeto de estudio + de + Contexto + ?
   
   **Condiciones:**
-  - Usa una interrogante cerrada: ¿Por qué?, ¿Cómo?.
-  - Usa un verbo adecuado según el tipo de relación (ej: influye en, afecta, determina, se relaciona con, impacta en).
   - No incluyas explicaciones ni texto adicional.
   - No uses expresiones como "en el contexto de".
-  - Dale sentido a la hipótesis ,pero sigue la estructura de la formula
+  - Dale sentido a la pregunta principal ,pero sigue la estructura de la formula de forma estricta.
   - No agregues palabras que no estén explícitamente en las variables.
   
   **Variables:**
   - causa = ${causa}
-  --interrogante=${interrogante}
+  - interrogante=${interrogante}
   - preposicion = ${preposicion}
   - problema = ${problema}
   - sujeto de estudio = ${sujeto}
