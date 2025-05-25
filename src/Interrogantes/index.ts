@@ -1,97 +1,61 @@
-export const preguntaPrincipal = ({ causa,interrogante, verbo, preposicion, problema, sujeto, contexto }) => {
+export const preguntaPrincipal = ({ causa, interrogante, verbo, preposicion, problema, sujeto, contexto }) => {
   const instrucciones: string = `
-  
-  Genera una [Pregunta Principal de Investigación (P.P.I)] siguiendo esta fórmula estrictamente:
-  ¿ + interrogante + causa + preposicion + problema + Sujeto de estudio + de + Contexto + ?
-  
-  **Condiciones:**
-  - No incluyas explicaciones ni texto adicional.
-  - No uses expresiones como "en el contexto de".
-  - Dale sentido a la pregunta principal ,pero sigue la estructura de la formula de forma estricta.
-  - No agregues palabras que no estén explícitamente en las variables.
-  
-  **Variables:**
-  - causa = ${causa}
-  - interrogante=${interrogante}
-  - preposicion = ${preposicion}
-  - problema = ${problema}
-  - sujeto de estudio = ${sujeto}
-  - contexto = ${contexto}
-  
-  Devuelve únicamente la pregunta completa.
-  
-  ---
-  
-  Genera una [Hipótesis] siguiendo estrictamente esta fórmula:  
-  artículo (ejemplo: "el", "la", "los", "las") + causa + preposicion + problema + sujeto de estudio + de + contexto.
-  
-  **Condiciones:**
-  - No incluyas explicaciones adicionales.
-  - No uses la expresión "en el contexto".
-  - No agregues palabras que no estén explícitamente en las variables.
-  - Dale sentido a la hipótesis ,pero sigue la estructura de la formula
-  - Usa el mismo verbo que en la Pregunta Principal.
-  
-  **Variables:**
-  - causa = ${causa}
-  - preposición = ${preposicion}
-  - problema = ${problema}
-  - sujeto de estudio = ${sujeto}
-  - contexto = ${contexto}
-  
-  ---
-  
-  Genera una [Hipótesis nula] usando la fórmula de manera estricta:  
-  artículo (ejemplo: "el", "la", "los", "las") + causa + no + preposicion  + problema + sujeto de estudio + de + contexto.
-  
-  **Condiciones:**
-  - Devuelve sin explicaciones adicionales.
-  - Utiliza un articulo adecuado según el tipo de relación.
-  - No digas "en el contexto".
-  - No agregues palabras de más.
-   
-  
-  ---
-  
-  Genera un [Objetivo General] siguiendo estrictamente esta fórmula:  
-  verbo + causa + preposición + problema + sujeto de estudio + "de" + contexto.
-  
-  **Condiciones:**
-  - Usa un verbo adecuado según el tipo de relación.
-  - No incluyas explicaciones ni texto adicional.
-  - No uses expresiones como "en el contexto de".
-  - No agregues palabras que no estén explícitamente en las variables.
-  
-  
-  
-  **Variables:**
-  - problema = ${problema}
-  - preposición = ${preposicion}
-  - verbo = ${verbo}
-  - causa = ${causa}
-  - sujeto de estudio = ${sujeto}
-  - contexto = ${contexto}
-  
-  ---
-  
-  Genera un [Título] siguiendo esta fórmula de manera estricta:  
-  causa + y + problema + sujeto de estudio + de + contexto.
-  
-  **Condiciones:**
-  - Devuelve sin explicaciones adicionales.
-  - No digas "en el contexto".
-  - No agregues palabras de más.
-  
-  **Variables:**
-  - causa = ${causa}
-  - problema = ${problema}
-  - sujeto de estudio = ${sujeto}
-  - contexto = ${contexto}
-  
+Genera los siguientes componentes de investigación académica utilizando estrictamente las fórmulas dadas, pero asegurando que cada resultado tenga **coherencia, fluidez y naturalidad en español académico**, sin alterar el orden de los elementos ni agregar palabras extra.
 
-  a todo esto, hazle saltos de linea en react \n para que no se vea todo pegado.
+---
+
+1. Pregunta Principal de Investigación (P.P.I)  
+Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto} + ?
+
+Condiciones:
+- Usa exactamente las variables dadas.
+- La redacción debe sonar natural en español formal, sin perder la estructura.
+- No agregues explicaciones ni texto adicional.
+- No uses expresiones como "en el contexto de".
+
+---
+
+2. Hipótesis  
+Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las") + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+
+Condiciones:
+- Usa el mismo verbo que en la P.P.I.
+- Mantén una redacción coherente y académica.
+- No incluyas palabras que no estén en las variables.
+
+---
+
+3. Hipótesis Nula  
+Fórmula: artículo adecuado + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+
+Condiciones:
+- Sigue la misma estructura.
+- Redacción fluida y clara.
+- Sin explicaciones ni adiciones.
+
+---
+
+4. Objetivo General  
+Fórmula: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+
+Condiciones:
+- Claridad y naturalidad académica.
+- No uses expresiones como “en el contexto”.
+- No agregues elementos no incluidos en las variables.
+
+---
+
+5. Título del Proyecto  
+Fórmula: ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
+
+Condiciones:
+- Usa una redacción clara, fluida y académica.
+- No incluyas explicaciones ni adornos adicionales.
+
+---
+
+Devuelve solamente los textos generados, uno debajo del otro, separados por doble salto de línea.
   `;
 
   return instrucciones;
-}
-
+};
