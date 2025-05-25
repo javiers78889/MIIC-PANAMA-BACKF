@@ -40,6 +40,7 @@ Fórmula: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + 
 
 Condiciones:
 - Claridad y naturalidad académica.
+- Mantén la estructura exacta sin agregar conectores o palabras extra (como "cómo", "que", "para", etc.).
 - No uses expresiones como “en el contexto”.
 - No agregues elementos no incluidos en las variables.
 
