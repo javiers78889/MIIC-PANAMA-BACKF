@@ -56,6 +56,10 @@ Condiciones:
 ---
 
 Devuelve solamente los textos generados, uno debajo del otro, separados por doble salto de línea.
+
+
+
+Nota Importante= al inicio de cada generación colocales lo que estas generando con su respectivo número.
   `;
 
   return instrucciones;
