@@ -11,8 +11,8 @@ export default async function getChatCompletion(instrucciones: string) {
     const hf = new InferenceClient(process.env.HUGGINGFACE_API_KEY);
 
 
-        const data = await hf.chatCompletion({
-            model: 'meta-llama/Llama-3.3-70B-Instruct',
+        const data = await hf.textGeneration({
+            model: 'Qwen/Qwen2-72B-Instruct',
             messages: [{
                 role: "user",
                 content: instrucciones
