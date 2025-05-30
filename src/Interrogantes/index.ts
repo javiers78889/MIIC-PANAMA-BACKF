@@ -44,6 +44,7 @@ Condiciones:
 - Mantén la estructura exacta sin agregar conectores o palabras extra (como "cómo", "que", "para", etc.).
 - No uses expresiones como “en el contexto”.
 - No agregues elementos no incluidos en las variables.
+- Usa artículos para darle sentido solo si es necesario.
 
 ---
 
