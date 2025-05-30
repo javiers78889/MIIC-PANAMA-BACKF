@@ -1,69 +1,71 @@
 export const preguntaPrincipal = ({ causa, interrogante, verbo, preposicion, problema, sujeto, contexto }) => {
   const instrucciones: string = `
-Genera los siguientes componentes de investigación académica utilizando estrictamente las fórmulas dadas, pero asegurando que cada resultado tenga **coherencia, fluidez y naturalidad en español académico**, sin alterar el orden de los elementos ni agregar palabras extra.
+Genera los siguientes componentes de investigación académica, utilizando **exclusivamente** las variables proporcionadas. Cada resultado debe tener **coherencia, fluidez y naturalidad en español académico**, sin alterar el orden de los elementos ni agregar palabras extra.
+
+Asegúrate de incluir el **título de cada sección**, numerado del 1 al 5, seguido del resultado correspondiente.  
+**No incluyas explicaciones, comentarios, conectores ni textos adicionales.**
 
 ---
 
 1. Pregunta Principal de Investigación (P.P.I)  
-Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto} + ?
+**Fórmula:** ¿ + ${interrogante} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto} + ?
 
-Condiciones:
-- Usa exactamente las variables dadas.
-- La redacción debe sonar natural en español formal, sin perder la estructura.
-- No agregues explicaciones ni texto adicional.
-- No uses expresiones como "en el contexto de".
-- Usa artículos si es necesario(ejemplo: "el", "la", "los", "las",etc...). el que suene mas natural
+**Condiciones:**
+- Usa **exactamente** las variables proporcionadas.
+- Redacta en español académico, natural y fluido.
+- **No alteres el orden** de los elementos.
+- **No agregues expresiones** como "en el contexto de", ni ningún conector.
+- Usa **artículos definidos** si son necesarios para que la frase tenga sentido (ej.: el, la, los, las).
 
 ---
 
 2. Hipótesis  
-Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las",etc...) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula:** [artículo adecuado] + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
-Condiciones:
-- Usa el mismo verbo que en la P.P.I.
-- Mantén una redacción coherente y académica.
-- No incluyas palabras que no estén en las variables.
+**Condiciones:**
+- Usa el **mismo verbo implícito** que en la P.P.I (por contexto).
+- Redacción académica, precisa y sin adornos.
+- Solo se permite el artículo si es necesario para el sentido gramatical.
 
 ---
 
 3. Hipótesis Nula  
-Fórmula: artículo adecuado + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula:** [artículo adecuado] + ${causa} + **no** + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
-Condiciones:
-- Sigue la misma estructura.
-- Redacción fluida y clara.
-- Sin explicaciones ni adiciones.
+**Condiciones:**
+- Misma estructura que la hipótesis.
+- Redacción clara, formal y directa.
+- No agregues conectores ni palabras adicionales.
 
 ---
 
 4. Objetivo General  
-Fórmula: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula:** ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
-Condiciones:
-- Claridad y naturalidad académica.
-- Mantén la estructura exacta sin agregar conectores o palabras extra (como "cómo", "que", "para", etc.).
-- No uses expresiones como “en el contexto”.
-- No agregues elementos no incluidos en las variables.
-- Usa artículos para darle sentido solo si es necesario.
+**Condiciones:**
+- Mantén la estructura **idéntica** a la fórmula.
+- Redacta en tono académico, directo y claro.
+- No uses palabras como “cómo”, “para”, “que”, etc.
+- Usa artículos solo si ayudan a la claridad gramatical.
 
 ---
 
 5. Título del Proyecto  
-Fórmula: ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula:** ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
 
-Condiciones:
-- Usa una redacción clara, fluida y académica.
-- No incluyas explicaciones ni adornos adicionales.
+**Condiciones:**
+- Redacción académica, clara y fluida.
+- No incluyas comas, conectores ni explicaciones adicionales.
+- Solo una línea.
 
 ---
 
-Devuelve solamente los textos generados, uno debajo del otro, separados por doble salto de línea.
+**Resultado esperado:**  
+Devuelve **únicamente** los cinco textos generados, uno debajo del otro, **separados por doble salto de línea**.  
+Cada texto debe iniciar con su **título numerado**, exactamente como aparece en la fórmula.
 
-
-
-Nota Importante= al inicio de cada generación colocales lo que estas generando con su respectivo número.
-Nota Importante 2 = Siempre usa las variables que te paso 
-  `;
+---
+`;
 
   return instrucciones;
 };
