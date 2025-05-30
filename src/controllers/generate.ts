@@ -16,6 +16,7 @@ class GenerateData {
             const pPrincipal = await getChatCompletion(principal)
             res.status(200).json(pPrincipal)
         } catch (error) {
+            
             res.status(401).json({ error: "Token agotados" })
         }
 
