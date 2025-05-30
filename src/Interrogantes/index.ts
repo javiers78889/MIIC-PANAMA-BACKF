@@ -12,7 +12,7 @@ Condiciones:
 - La redacción debe sonar natural en español formal, sin perder la estructura.
 - No agregues explicaciones ni texto adicional.
 - No uses expresiones como "en el contexto de".
-- Usa artículos si es necesario
+- Usa artículos si es necesario(ejemplo: "el", "la", "los", "las",etc...). el que suene mas natural
 
 ---
 
