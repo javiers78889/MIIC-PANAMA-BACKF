@@ -12,11 +12,12 @@ Condiciones:
 - La redacción debe sonar natural en español formal, sin perder la estructura.
 - No agregues explicaciones ni texto adicional.
 - No uses expresiones como "en el contexto de".
+- Usa artículos si es necesario
 
 ---
 
 2. Hipótesis  
-Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las") + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las",etc...) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
 Condiciones:
 - Usa el mismo verbo que en la P.P.I.
@@ -60,6 +61,7 @@ Devuelve solamente los textos generados, uno debajo del otro, separados por dobl
 
 
 Nota Importante= al inicio de cada generación colocales lo que estas generando con su respectivo número.
+Nota Importante 2 = Siempre usa las variables que te paso 
   `;
 
   return instrucciones;
