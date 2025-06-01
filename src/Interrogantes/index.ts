@@ -16,27 +16,7 @@ Condiciones:
 
 ---
 
-2. Hipótesis  
-Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las",etc...) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
-Condiciones:
-- Usa el mismo verbo que en la P.P.I.
-- Mantén una redacción coherente y académica.
-- No incluyas palabras que no estén en las variables.
-
----
-
-3. Hipótesis Nula  
-Fórmula: artículo adecuado + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
-Condiciones:
-- Sigue la misma estructura.
-- Redacción fluida y clara.
-- Sin explicaciones ni adiciones.
-
----
-
-4. Objetivo General  
+2. Objetivo General  
 Fórmula: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
 Condiciones:
@@ -48,12 +28,34 @@ Condiciones:
 
 ---
 
-5. Título del Proyecto  
+3. Título del Proyecto  
 Fórmula: ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
 
 Condiciones:
 - Usa una redacción clara, fluida y académica.
 - No incluyas explicaciones ni adornos adicionales.
+
+---
+
+4. Hipótesis  
+Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las",etc...) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+
+Condiciones:
+- Usa el mismo verbo que en la P.P.I.
+- Mantén una redacción coherente y académica.
+- No incluyas palabras que no estén en las variables.
+
+---
+
+5. Hipótesis Nula  
+Fórmula: artículo adecuado + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+
+---
+
+Condiciones:
+- Sigue la misma estructura.
+- Redacción fluida y clara.
+- Sin explicaciones ni adiciones.
 
 ---
 
