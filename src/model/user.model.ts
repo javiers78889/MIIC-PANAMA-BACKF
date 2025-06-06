@@ -1,0 +1,39 @@
+import { Table, Column, Model, DataType, Default } from 'sequelize-typescript'
+
+
+@Table({
+    tableName: 'users'
+})
+
+
+export class Users extends Model {
+    @Column({
+        type: DataType.STRING(255),
+        allowNull: false
+    })
+    email: string
+    @Column({
+        type: DataType.STRING(255),
+        allowNull: false
+    })
+    name: string
+    @Column({
+        type: DataType.STRING(255),
+        allowNull: false
+    })
+    lastname: string
+    @Column({
+        type: DataType.STRING(255),
+        allowNull: false
+    })
+    cedula: string
+
+    @Default(false)
+    @Column({
+        type: DataType.BOOLEAN,
+
+    })
+    auth: boolean
+
+
+}
