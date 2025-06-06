@@ -6,10 +6,16 @@ dotenv.config()
 
 const databaseUrl = process.env.DATABASE_URL
 
-console.log(databaseUrl)
 const db = new Sequelize(databaseUrl, {
+
     dialect: 'postgres',
-    models: [Users]
+    models: [Users],
+   dialectOptions:{
+    ssl:{
+        require: true,
+        rejectUnauthorized: false,
+    }
+   }
 })
 
 

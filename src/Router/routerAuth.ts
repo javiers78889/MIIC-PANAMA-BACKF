@@ -1,15 +1,30 @@
 import { Router } from 'express'
 import { Auth } from '../controllers/auth'
 import { body } from 'express-validator'
+import { handleInputErrors } from '../middleware/validationResult'
+import { Users } from '../model/user.model'
 
 const router = Router()
 
-
+const auth = new Auth(Users)
 
 router.post('/login',
     body('email').isEmail().withMessage('Email no válido'),
     body('password').notEmpty().withMessage('El password no puede ir vacío'),
-    Auth.Login)
+    handleInputErrors,
+    auth.Login)
+
+
+router.post('/create-user',
+    body('email').isEmail().withMessage('Email no válido'),
+    body('cedula').notEmpty().withMessage('cedula no válido'),
+    body('name').notEmpty().withMessage('name no válido'),
+    body('lastname').notEmpty().withMessage('lastname no válido'),
+    body('password').notEmpty().withMessage('El password no puede ir vacío'),
+    handleInputErrors,
+    auth.createUser
+
+)
 
 
 

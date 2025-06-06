@@ -16,6 +16,11 @@ export class Users extends Model {
         type: DataType.STRING(255),
         allowNull: false
     })
+    password: string
+    @Column({
+        type: DataType.STRING(255),
+        allowNull: false
+    })
     name: string
     @Column({
         type: DataType.STRING(255),
@@ -27,6 +32,13 @@ export class Users extends Model {
         allowNull: false
     })
     cedula: string
+
+    @Default(false)
+    @Column({
+        type: DataType.STRING(5),
+        allowNull: true
+    })
+    token: string
 
     @Default(false)
     @Column({

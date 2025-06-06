@@ -6,13 +6,14 @@ import db from "./config/db/db";
 
 
 
-const connectDB = async () => {
+async function connectDB() {
     try {
         await db.authenticate()
         db.sync()
         console.log(`Base de Datos Sincronizada`)
     } catch (error) {
         console.log(error)
+        console.log('Hubo un error al conectarse a la base de datos')
     }
 
 }
