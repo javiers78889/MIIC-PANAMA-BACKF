@@ -2,6 +2,7 @@ import { Router } from "express";
 import GenerateData from "../controllers/generate";
 import { body } from "express-validator";
 import { handleInputErrors } from "../middleware/validationResult";
+import { jwtGuard } from "../middleware/jwtValidation";
 
 
 
@@ -17,6 +18,7 @@ router.post('/',
     body('preposicion').notEmpty().withMessage('La preposicion no puede ir vacio'),
     body('interrogante').notEmpty().withMessage('La interrogante no puede ir vacia'),
     handleInputErrors,
+    jwtGuard,
     GenerateData.sendData)
 
 

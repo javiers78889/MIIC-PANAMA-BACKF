@@ -13,18 +13,21 @@ export class Auth {
             const validate = await this.userService.findOne({ where: { email } })
 
 
-            if (validate.dataValues) {
+            if (validate) {
                 const pwd = await bcrypt.compare(password, validate.dataValues.password)
                 const { id } = validate.dataValues
                 if (pwd) {
 
                     const token = jwt.sign({ data: id }, process.env.TOKEN, { expiresIn: 60 * 60 })
-                    res.status(200).json({token, message:'Usuario validado'})
-                }else{
+                    res.status(200).json({ token, message: 'Usuario validado' })
+                } else {
 
                     res.status(401).json("No validado")
                 }
 
+            } else {
+
+                res.status(401).json("No validado")
             }
 
         } catch (error) {
