@@ -26,6 +26,12 @@ router.post('/create-user',
 
 )
 
+router.post('/validate-token',
+    body('token').notEmpty().withMessage('El token no puede ir vacío.'),
+    handleInputErrors,
+    auth.validatejwt
+)
+
 
 
 

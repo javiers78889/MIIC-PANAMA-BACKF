@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import { Users } from '../model/user.model'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
+import envs from '../config/envs'
 export class Auth {
 
     constructor(private readonly userService: typeof Users) { }
@@ -67,12 +68,16 @@ export class Auth {
         } catch (error) {
             res.status(401).json(error.message)
         }
+    }
 
-
-
-
-
-
+    validatejwt = async (req: Request, res: Response) => {
+        const { token } = req.body
+        try {
+            jwt.verify(token, envs.TOKEN)
+            res.status(200).json('Validado')
+        } catch (error) {
+            res.status(401).json('Token no válida')
+        }
     }
 
 }
