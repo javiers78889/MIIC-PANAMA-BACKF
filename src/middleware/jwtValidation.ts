@@ -11,11 +11,11 @@ export const jwtGuard = (req: Request, res: Response, next: NextFunction) => {
             jwt.verify(token, process.env.TOKEN as string)
             next()
         } catch (error) {
-            res.status(401).json('Token no valido')
+            res.status(401).json({message:'Token no valido'})
         }
 
     }
     else {
-        res.status(401).json('No tiene un token')
+        res.status(401).json({ message: 'No tiene un token' })
     }
 }
