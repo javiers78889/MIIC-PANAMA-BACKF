@@ -3,10 +3,14 @@ import { Auth } from '../controllers/auth'
 import { body } from 'express-validator'
 import { handleInputErrors } from '../middleware/validationResult'
 import { Users } from '../model/user.model'
+import { limiter } from '../middleware/limiter'
+
 
 const router = Router()
 
 const auth = new Auth(Users)
+
+router.use(limiter)
 
 router.post('/login',
     body('email').isEmail().withMessage('Email no válido'),
