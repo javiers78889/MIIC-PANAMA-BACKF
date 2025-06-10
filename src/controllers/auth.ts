@@ -74,9 +74,9 @@ export class Auth {
         const { token } = req.body
         try {
             jwt.verify(token, envs.TOKEN)
-            res.status(200).json('Validado')
+            res.status(200).json({ message: 'Validado' })
         } catch (error) {
-            res.status(401).json('Token no válida')
+            res.status(401).json({ message: 'Token no válida' })
         }
     }
 
