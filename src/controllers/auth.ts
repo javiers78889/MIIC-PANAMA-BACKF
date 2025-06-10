@@ -23,12 +23,12 @@ export class Auth {
                     res.status(200).json({ token, message: 'Usuario validado' })
                 } else {
 
-                    res.status(401).json("No validado")
+                    res.status(401).json({message:"No validado"})
                 }
 
             } else {
 
-                res.status(401).json("No validado")
+                res.status(401).json({message:"No validado"})
             }
 
         } catch (error) {
