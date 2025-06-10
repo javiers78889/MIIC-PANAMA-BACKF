@@ -3,11 +3,13 @@ import GenerateData from "../controllers/generate";
 import { body } from "express-validator";
 import { handleInputErrors } from "../middleware/validationResult";
 import { jwtGuard } from "../middleware/jwtValidation";
+import { limiterQuery } from "../middleware/limiter";
 
 
 
 const router = Router()
 
+router.use(limiterQuery)
 
 router.post('/',
     body('causa').notEmpty().withMessage('La causa no puede ir vacia'),
