@@ -5,8 +5,8 @@ export class Mailer {
 
 
 
-    static readonly sendEmail = async (mail: string, subject: string, text: string, token: string) => {
-        
+    static readonly sendEmail = async (mail: string, subject: string, text: string, token: string, motivo: string,path:string) => {
+        console.log(`Correo enviado : ${mail} ${envs.EMAIL}`)
         try {
 
 
@@ -20,7 +20,7 @@ export class Mailer {
                     <img src="https://res.cloudinary.com/dkcwi8gob/image/upload/v1749616443/miic_asxe25.png" width="80px" height="80px"/>
                 </header>
 
-                <h5 style="font-size: 15px">Hola, su token para validar su cuenta es:</h5>
+                <h5 style="font-size: 15px">Hola,el token para ${motivo} su cuenta es:</h5>
 
                 <br/>
 
@@ -39,7 +39,7 @@ export class Mailer {
 
                 <br/><br/>
 
-                <p>Enlace para validar cuenta: <a href="${envs.FRONTEND}/auth/confirm-account">Validar</a></p>
+                <p>Enlace para validar cuenta: <a href="${envs.FRONTEND}/${path}">Validar</a></p>
             `
 
 

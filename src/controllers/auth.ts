@@ -77,7 +77,7 @@ export class Auth {
             const usuario = await this.userService.create(data)
             usuario.save()
 
-            await this.mailer.sendEmail(mail, 'Valide su cuenta', 'Valide su cuenta', token)
+            await this.mailer.sendEmail(mail, 'Valide su cuenta', 'Valide su cuenta', token, 'confirmar','/auth/confirm-account')
 
             res.status(200).json({ message: 'Usuario Creado, revise su correo para validarlo' })
         } catch (error) {
@@ -106,6 +106,54 @@ export class Auth {
                 res.status(200).json({ message: 'Cuenta validada' });
             } else {
                 res.status(404).json({ message: 'Token inválido o usuario no encontrado' });
+            }
+        } catch (error) {
+            res.status(404).json({ message: error.message })
+        }
+    }
+
+    recoveryPassword = async (req: Request, res: Response) => {
+        const { email } = req.body
+        try {
+            const usuario = await this.userService.findOne({ where: { email } })
+            if (usuario) {
+                usuario.token = generatteToken();
+                await usuario.update(usuario);
+                await this.mailer.sendEmail(usuario.dataValues.email, 'Recuperación de Cuenta', 'Recuperación de Cuenta', usuario.dataValues.token, 'recuperar','/auth/recovery-password-validate')
+                res.status(200).json({ message: `Revise su correo ${email}` });
+            } else {
+                res.status(404).json({ message: 'correo no encontrado' });
+            }
+        } catch (error) {
+            res.status(404).json({ message: error.message })
+        }
+    }
+
+    verifyTokenRecovery = async (req: Request, res: Response) => {
+        const { token } = req.body
+        try {
+            const usuario = await this.userService.findOne({ where: { token } })
+            if (usuario) {
+                res.status(200).json({ message: `Token válido ${usuario.dataValues.name} ${usuario.dataValues.lastname}`,token: usuario.dataValues.token });
+            } else {
+                res.status(404).json({ message: 'Token inválido o usuario no encontrado' });
+            }
+        } catch (error) {
+            res.status(404).json({ message: error.message })
+        }
+    }
+    newUserPassword = async (req: Request, res: Response) => {
+        const { token, password } = req.body
+        try {
+            const usuario = await this.userService.findOne({ where: { token } })
+            if (usuario) {
+
+                usuario.password = await bcrypt.hash(password, 12)
+                usuario.token = ''
+                await usuario.update(usuario)
+                res.status(200).json({ message: `Contraseña Actualizada Correctamente` });
+            } else {
+                res.status(404).json({ message: 'Error al Actualizar Contraseña' });
             }
         } catch (error) {
             res.status(404).json({ message: error.message })

@@ -28,7 +28,6 @@ router.post('/create-user',
     body('password').notEmpty().withMessage('El password no puede ir vacío'),
     handleInputErrors,
     auth.createUser
-
 )
 
 router.post('/validate-token',
@@ -41,6 +40,24 @@ router.post('/validate-account',
     body('token').notEmpty().withMessage('El token no puede ir vacío.'),
     handleInputErrors,
     auth.validateAccount
+)
+
+router.post('/recovery-password',
+    body('email').isEmail().withMessage('Email no válido'),
+    handleInputErrors,
+    auth.recoveryPassword
+)
+router.post('/verify-token-recovery',
+    body('token').notEmpty().withMessage('El token no puede ir vacío.'),
+    handleInputErrors,
+    auth.verifyTokenRecovery
+)
+
+router.post('/new-user-password',
+    body('token').notEmpty().withMessage('El token no puede ir vacío.'),
+    body('password').notEmpty().withMessage('El password no puede ir vacío'),
+    handleInputErrors,
+    auth.newUserPassword
 )
 
 
