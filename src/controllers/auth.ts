@@ -23,12 +23,12 @@ export class Auth {
                     res.status(200).json({ token, message: 'Usuario validado' })
                 } else {
 
-                    res.status(401).json({message:"No validado"})
+                    res.status(401).json({ message: "No validado" })
                 }
 
             } else {
 
-                res.status(401).json({message:"No validado"})
+                res.status(401).json({ message: "No validado" })
             }
 
         } catch (error) {
@@ -66,7 +66,7 @@ export class Auth {
 
             res.status(200).json({ message: 'Usuario Creado, revise su correo para validarlo' })
         } catch (error) {
-            res.status(401).json(error.message)
+            res.status(401).json({ message: error.message })
         }
     }
 
