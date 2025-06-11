@@ -4,11 +4,12 @@ import { body } from 'express-validator'
 import { handleInputErrors } from '../middleware/validationResult'
 import { Users } from '../model/user.model'
 import { limiter } from '../middleware/limiter'
+import { Mailer } from '../controllers/mailer'
 
 
 const router = Router()
 
-const auth = new Auth(Users)
+const auth = new Auth(Users,Mailer)
 
 router.use(limiter)
 
@@ -35,6 +36,13 @@ router.post('/validate-token',
     handleInputErrors,
     auth.validatejwt
 )
+
+router.post('/validate-account',
+    body('token').notEmpty().withMessage('El token no puede ir vacío.'),
+    handleInputErrors,
+    auth.validateAccount
+)
+
 
 
 
