@@ -102,7 +102,7 @@ export class Auth {
             if (usuario) {
                 usuario.auth = true;
                 usuario.token = '';
-                await usuario.save();
+                await usuario.update(usuario);
                 res.status(200).json({ message: 'Cuenta validada' });
             } else {
                 res.status(404).json({ message: 'Token inválido o usuario no encontrado' });
