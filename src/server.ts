@@ -21,6 +21,7 @@ async function connectDB() {
 connectDB();
 
 const server = express();
+server.set("trust proxy",true)
 
 server.use(cors({ origin: '*' }))
 server.use(express.json())
