@@ -11,7 +11,10 @@ class GenerateData {
 
 
     static sendData = async (req: Request, res: Response) => {
+        
         const principal = preguntaPrincipal(req.body)
+    
+    
          try {
             const pPrincipal = await getChatCompletion(principal)
             res.status(200).json(pPrincipal)
@@ -19,7 +22,7 @@ class GenerateData {
             
             res.status(401).json({ error: "Token agotados" })
         }
-
+    
     }
 }
 

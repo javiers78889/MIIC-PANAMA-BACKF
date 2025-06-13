@@ -9,7 +9,7 @@ import { limiterQuery } from "../middleware/limiter";
 
 const router = Router()
 
-router.use(limiterQuery)
+//router.use(limiterQuery)
 
 router.post('/',
     body('causa').notEmpty().withMessage('La causa no puede ir vacia'),
@@ -19,6 +19,9 @@ router.post('/',
     body('verbo').notEmpty().withMessage('El verbo no puede ir vacio'),
     body('preposicion').notEmpty().withMessage('La preposicion no puede ir vacio'),
     body('interrogante').notEmpty().withMessage('La interrogante no puede ir vacia'),
+    body('subproblemas').isArray().optional(),
+    body('subcausas').isArray().optional(),
+
     handleInputErrors,
     jwtGuard,
     GenerateData.sendData)

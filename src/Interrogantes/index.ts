@@ -1,4 +1,6 @@
-export const preguntaPrincipal = ({ causa, interrogante, verbo, preposicion, problema, sujeto, contexto }) => {
+export const preguntaPrincipal = ({ causa, interrogante, verbo, preposicion, problema, sujeto, contexto, subproblemas, subcausas }) => {
+  const subProbl: string = subproblemas.join(' + ')
+  const subcau: string = subcausas.join(' + ')
   const instrucciones: string = `
 Genera los siguientes componentes de investigación académica utilizando estrictamente las fórmulas dadas, pero asegurando que cada resultado tenga **coherencia, fluidez y naturalidad en español académico**, sin alterar el orden de los elementos ni agregar palabras extra.
 
@@ -58,6 +60,60 @@ Condiciones:
 - Sin explicaciones ni adiciones.
 
 ---
+${subcau.length && subProbl.length ? (`
+  6. Pregunta Secundaria de investigación 1 
+     Fórmula: ¿ + ${interrogante} + ${causa} + ${subcau} +${sujeto} + de + ${contexto} + ?
+---
+  7. Pregunta Secundaria de investigación 2 
+     Fórmula: ¿ + ${interrogante} + ${problema} + ${subProbl} +${sujeto} + de + ${contexto} + ?
+---
+  8. Pregunta Secundaria de investigación 3
+     Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + y + no + ${problema} + ${sujeto} + de + ${contexto} + ?
+---
+  9. Objetivo específico de investigación 1
+     Fórmula: ${verbo} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto} 
+---
+  10. Objetivo específico de investigación 2
+     Fórmula: ${verbo} + ${problema} + ${subproblemas} + ${sujeto} + de + ${contexto} 
+---
+  11. Objetivo específico de investigación 3
+      Fórmula: ${verbo} + ${causa} + ${preposicion} + y + no + ${problema} + ${sujeto} + de + ${contexto} 
+---
+
+
+
+
+Condiciones:
+- Sigue la misma estructura.
+- Redacción fluida y clara.
+- Sin explicaciones ni adiciones.
+
+---
+  
+  
+  `) : (`
+      6. Pregunta Secundaria de investigación 1 
+     Fórmula: ¿ + ${interrogante} + ${causa} + ${sujeto} + de + ${contexto} + ?
+    ---
+      7. Pregunta Secundaria de investigación 2 
+        Fórmula: ¿ + ${interrogante} + ${problema} + ${sujeto} + de + ${contexto} + ?
+    ---
+      8. Pregunta Secundaria de investigación 3
+        Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + y + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto} + ?
+    ---
+      9. Objetivo específico de investigación 1
+        Fórmula: ${verbo} + ${causa} + ${sujeto} + de + ${contexto} 
+    ---
+      10. Objetivo específico de investigación 2
+        Fórmula: ${verbo} + ${problema} + ${sujeto} + de + ${contexto} 
+    ---
+      11. Objetivo específico de investigación 3
+          Fórmula: ${verbo} + ${causa} + ${preposicion} + y + no + ${problema} + ${preposicion} +${problema} + ${sujeto} + de + ${contexto} 
+    ---
+    
+    
+    `)}
+
 
 Devuelve solamente los textos generados, uno debajo del otro, separados por doble salto de línea.
 
