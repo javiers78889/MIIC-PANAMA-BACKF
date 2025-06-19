@@ -1,126 +1,125 @@
-export const preguntaPrincipal = ({ causa, interrogante, verbo, preposicion, problema, sujeto, contexto, subproblemas, subcausas }) => {
-  const subProbl: string = subproblemas.join(' + ')
-  const subcau: string = subcausas.join(' + ')
-  const instrucciones: string = `
-Genera los siguientes componentes de investigación académica utilizando estrictamente las fórmulas dadas, pero asegurando que cada resultado tenga **coherencia, fluidez y naturalidad en español académico**, sin alterar el orden de los elementos ni agregar palabras extra.
+export const preguntaPrincipal = ({
+  causa,
+  interrogante,
+  verbo,
+  preposicion,
+  problema,
+  sujeto,
+  contexto,
+  subproblemas = [],
+  subcausas = [],
+}) => {
+  const subProbl = subproblemas.join(' + ');
+  const subcau = subcausas.join(' + ');
+
+  const instrucciones = `
+Genera los siguientes componentes de un proyecto de investigación académica utilizando las fórmulas indicadas. Es fundamental que cada enunciado:
+
+✅ Siga **exactamente la estructura indicada**.  
+✅ Use un **lenguaje natural, fluido y formal en español académico**.  
+✅ Tenga **sentido lógico y coherencia semántica real**.  
+✅ Use artículos definidos solo si son necesarios ("el", "la", "los", "las").  
+🚫 No agregues explicaciones, conectores extra ni adornos.  
+🚫 No reformules ni cambies el orden de las variables.  
+🚫 No escribas “en el contexto de”.
 
 ---
 
-1. Pregunta Principal de Investigación (P.P.I)  
-Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto} + ?
-
-Condiciones:
-- Usa exactamente las variables dadas.
-- La redacción debe sonar natural en español formal, sin perder la estructura.
-- No agregues explicaciones ni texto adicional.
-- No uses expresiones como "en el contexto de".
-- Usa artículos si es necesario(ejemplo: "el", "la", "los", "las",etc...). el que suene mas natural
+1. **Pregunta Principal de Investigación (P.P.I)**  
+**Fórmula**: ¿${interrogante} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}?
 
 ---
 
-2. Objetivo General  
-Fórmula: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
-Condiciones:
-- Claridad y naturalidad académica.
-- Mantén la estructura exacta sin agregar conectores o palabras extra (como "cómo", "que", "para", etc.).
-- No uses expresiones como “en el contexto”.
-- No agregues elementos no incluidos en las variables.
-- Usa artículos para darle sentido solo si es necesario.
+2. **Objetivo General**  
+**Fórmula**: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
 ---
 
-3. Título del Proyecto  
-Fórmula: ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
-
-Condiciones:
-- Usa una redacción clara, fluida y académica.
-- No incluyas explicaciones ni adornos adicionales.
+3. **Título del Proyecto**  
+**Fórmula**: ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
 
 ---
 
-4. Hipótesis  
-Fórmula: artículo adecuado (ejemplo: "el", "la", "los", "las",etc...) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
-Condiciones:
-- Usa el mismo verbo que en la P.P.I.
-- Mantén una redacción coherente y académica.
-- No incluyas palabras que no estén en las variables.
+4. **Hipótesis**  
+**Fórmula**: (artículo adecuado) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
 ---
 
-5. Hipótesis Nula  
-Fórmula: artículo adecuado + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
+5. **Hipótesis Nula**  
+**Fórmula**: (artículo adecuado) + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
 
 ---
 
-Condiciones:
-- Sigue la misma estructura.
-- Redacción fluida y clara.
-- Sin explicaciones ni adiciones.
+${
+  subProbl && subcau
+    ? `
+6. **Pregunta Secundaria 1**  
+¿${interrogante} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
 
 ---
-${subcau.length && subProbl.length ? (`
-  6. Pregunta Secundaria de investigación 1 
-     Fórmula: ¿ + ${interrogante} + ${causa} + ${subcau} +${sujeto} + de + ${contexto} + ?
----
-  7. Pregunta Secundaria de investigación 2 
-     Fórmula: ¿ + ${interrogante} + ${problema} + ${subProbl} +${sujeto} + de + ${contexto} + ?
----
-  8. Pregunta Secundaria de investigación 3
-     Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + y + no + ${problema} + ${sujeto} + de + ${contexto} + ?
----
-  9. Objetivo específico de investigación 1
-     Fórmula: ${verbo} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto} 
----
-  10. Objetivo específico de investigación 2
-     Fórmula: ${verbo} + ${problema} + ${subproblemas} + ${sujeto} + de + ${contexto} 
----
-  11. Objetivo específico de investigación 3
-      Fórmula: ${verbo} + ${causa} + ${preposicion} + y + no + ${problema} + ${sujeto} + de + ${contexto} 
----
 
-
-
-
-Condiciones:
-- Sigue la misma estructura.
-- Redacción fluida y clara.
-- Sin explicaciones ni adiciones.
+7. **Pregunta Secundaria 2**  
+¿${interrogante} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
 
 ---
-  
-  
-  `) : (`
-      6. Pregunta Secundaria de investigación 1 
-     Fórmula: ¿ + ${interrogante} + ${causa} + ${sujeto} + de + ${contexto} + ?
-    ---
-      7. Pregunta Secundaria de investigación 2 
-        Fórmula: ¿ + ${interrogante} + ${problema} + ${sujeto} + de + ${contexto} + ?
-    ---
-      8. Pregunta Secundaria de investigación 3
-        Fórmula: ¿ + ${interrogante} + ${causa} + ${preposicion} + y + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto} + ?
-    ---
-      9. Objetivo específico de investigación 1
-        Fórmula: ${verbo} + ${causa} + ${sujeto} + de + ${contexto} 
-    ---
-      10. Objetivo específico de investigación 2
-        Fórmula: ${verbo} + ${problema} + ${sujeto} + de + ${contexto} 
-    ---
-      11. Objetivo específico de investigación 3
-          Fórmula: ${verbo} + ${causa} + ${preposicion} + y + no + ${problema} + ${preposicion} +${problema} + ${sujeto} + de + ${contexto} 
-    ---
-    
-    
-    `)}
 
+8. **Pregunta Secundaria 3**  
+¿${interrogante} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
 
-Devuelve solamente los textos generados, uno debajo del otro, separados por doble salto de línea.
+---
 
+9. **Objetivo Específico 1**  
+${verbo} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
 
+---
 
-Nota Importante= al inicio de cada generación colocales lo que estas generando con su respectivo número.
-Nota Importante 2 = Siempre usa las variables que te paso 
+10. **Objetivo Específico 2**  
+${verbo} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}
+
+---
+
+11. **Objetivo Específico 3**  
+${verbo} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
+
+---`
+    : `
+6. **Pregunta Secundaria 1**  
+¿${interrogante} + ${causa} + ${sujeto} + de + ${contexto}?
+
+---
+
+7. **Pregunta Secundaria 2**  
+¿${interrogante} + ${problema} + ${sujeto} + de + ${contexto}?
+
+---
+
+8. **Pregunta Secundaria 3**  
+¿${interrogante} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
+
+---
+
+9. **Objetivo Específico 1**  
+${verbo} + ${causa} + ${sujeto} + de + ${contexto}
+
+---
+
+10. **Objetivo Específico 2**  
+${verbo} + ${problema} + ${sujeto} + de + ${contexto}
+
+---
+
+11. **Objetivo Específico 3**  
+${verbo} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
+
+---`
+}
+
+📌 **Devuelve únicamente los resultados generados**, uno debajo del otro, separados por doble salto de línea.
+
+📌 Antes de cada resultado, escribe el número y el nombre del componente.
+
+📌 No expliques, no reformules, no justifiques. Usa solo las variables proporcionadas. Tu única tarea es construir frases **gramaticalmente correctas y con sentido académico**.
+
   `;
 
   return instrucciones;

@@ -1,31 +1,41 @@
-import dotenv from 'dotenv'
-const infer = require('@huggingface/inference')
-
-dotenv.config()
+import dotenv from 'dotenv';
+dotenv.config();
+interface OpenRouterResponse {
+    choices: {
+        message: {
+            content: string;
+        };
+    }[];
+}
 function limpiarThinkTags(texto: string): string {
     return texto.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
 }
 
+
 export default async function getChatCompletion(instrucciones: string) {
-
-    const { InferenceClient } = infer
-    const hf = new InferenceClient(process.env.HUGGINGFACE_API_KEY);
-
-
-    const data = await hf.chatCompletion({
-        provider: "cerebras",
-        model: 'Qwen/Qwen3-32B',
-        messages: [{
-            role: "user",
-            content: instrucciones
-        }]
+    console.log(instrucciones)
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            model: "openai/chatgpt-4o-latest", // puedes cambiar por otro modelo de OpenRouter
+            messages: [
+                {
+                    role: "user",
+                    content: instrucciones
+                }
+            ]
+        })
     });
 
+    const json = await response.json() as OpenRouterResponse;
 
-    const textoOriginal = data.choices[0].message.content;
+    const textoOriginal = json.choices[0]?.message?.content || '';
     const textoLimpio = limpiarThinkTags(textoOriginal);
 
     console.log(textoLimpio);
     return textoLimpio;
 }
-
