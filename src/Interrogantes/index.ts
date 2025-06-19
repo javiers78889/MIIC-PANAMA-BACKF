@@ -13,15 +13,21 @@ export const preguntaPrincipal = ({
   const subcau = subcausas.join(' + ');
 
   const instrucciones = `
-Genera los siguientes componentes de un proyecto de investigación académica utilizando las fórmulas indicadas. Es fundamental que cada enunciado:
+Genera los siguientes componentes de un proyecto de investigación académica utilizando las fórmulas indicadas. Cada enunciado debe cumplir las siguientes condiciones:
 
-✅ Siga **exactamente la estructura indicada**.  
-✅ Use un **lenguaje natural, fluido y formal en español académico**.  
-✅ Tenga **sentido lógico y coherencia semántica real**.  
-✅ Use artículos definidos solo si son necesarios ("el", "la", "los", "las").  
-🚫 No agregues explicaciones, conectores extra ni adornos.  
-🚫 No reformules ni cambies el orden de las variables.  
+✅ Sigue exactamente las fórmulas dadas, usando las variables proporcionadas.  
+✅ Redacta con **coherencia, fluidez y naturalidad en español académico**.  
+✅ Agrega **artículos definidos** ("el", "la", "los", "las") y **conectores gramaticales mínimos** ("cómo", "de qué manera", etc.) **solo cuando sean necesarios para que la oración tenga sentido y suene natural**.  
+✅ Mantén el orden lógico de los elementos.  
+🚫 No expliques, no reformules, no adornes.  
 🚫 No escribas “en el contexto de”.
+
+---
+
+📌 **IMPORTANTE – Ejemplos de redacción correcta e incorrecta:**
+
+❌ Incorrecto: ¿Cómo experiencia laboral afecta desempleo estudiantes de ISAE Universidad?  
+✅ Correcto: ¿Cómo *la* experiencia laboral afecta *el* desempleo *de los* estudiantes de ISAE Universidad?
 
 ---
 
@@ -118,9 +124,8 @@ ${verbo} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${c
 
 📌 Antes de cada resultado, escribe el número y el nombre del componente.
 
-📌 No expliques, no reformules, no justifiques. Usa solo las variables proporcionadas. Tu única tarea es construir frases **gramaticalmente correctas y con sentido académico**.
-
-  `;
+📌 No expliques, no reformules, no justifiques. Solo genera las frases **correctas, naturales y académicas** a partir de las variables.
+`;
 
   return instrucciones;
 };

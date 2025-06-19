@@ -13,7 +13,6 @@ function limpiarThinkTags(texto: string): string {
 
 
 export default async function getChatCompletion(instrucciones: string) {
-    console.log(instrucciones)
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
