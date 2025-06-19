@@ -36,6 +36,6 @@ export default async function getChatCompletion(instrucciones: string) {
     const textoOriginal = json.choices[0]?.message?.content || '';
     const textoLimpio = limpiarThinkTags(textoOriginal);
 
-    console.log(textoLimpio);
+
     return textoLimpio;
 }
