@@ -6,6 +6,8 @@ export const preguntaPrincipal = ({
   problema,
   sujeto,
   contexto,
+  v1,v2,v3,
+  i1,i2,i3,
   subproblemas = [],
   subcausas = [],
 }) => {
@@ -60,71 +62,74 @@ ${
   subProbl && subcau
     ? `
 6. **Pregunta Secundaria 1**  
-¿${interrogante} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
+¿${i1} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
 
 ---
 
 7. **Pregunta Secundaria 2**  
-¿${interrogante} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
+¿${i2} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
 
 ---
 
 8. **Pregunta Secundaria 3**  
-¿${interrogante} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
 
 ---
 
 9. **Objetivo Específico 1**  
-${verbo} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
+${v1} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
 
 ---
 
 10. **Objetivo Específico 2**  
-${verbo} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}
+${v2} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}
 
 ---
 
 11. **Objetivo Específico 3**  
-${verbo} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
+${v3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
 
 ---`
     : `
 6. **Pregunta Secundaria 1**  
-¿${interrogante} + ${causa} + ${sujeto} + de + ${contexto}?
+¿${i1} + ${causa} + ${sujeto} + de + ${contexto}?
 
 ---
 
 7. **Pregunta Secundaria 2**  
-¿${interrogante} + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i2} + ${problema} + ${sujeto} + de + ${contexto}?
 
 ---
 
 8. **Pregunta Secundaria 3**  
-¿${interrogante} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
 
 ---
 
 9. **Objetivo Específico 1**  
-${verbo} + ${causa} + ${sujeto} + de + ${contexto}
+${v1} + ${causa} + ${sujeto} + de + ${contexto}
 
 ---
 
 10. **Objetivo Específico 2**  
-${verbo} + ${problema} + ${sujeto} + de + ${contexto}
+${v2} + ${problema} + ${sujeto} + de + ${contexto}
 
 ---
 
 11. **Objetivo Específico 3**  
-${verbo} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
+${v3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
 
 ---`
 }
 
-📌 **Devuelve únicamente los resultados generados**, uno debajo del otro, separados por doble salto de línea.
+📌 **Devuelve las respuestas como un solo objeto JSON con sus claves**,
 
 📌 Antes de cada resultado, escribe el número y el nombre del componente.
 
 📌 No expliques, no reformules, no justifiques. Solo genera las frases **correctas, naturales y académicas** a partir de las variables.
+
+
+
 `;
 
   return instrucciones;
