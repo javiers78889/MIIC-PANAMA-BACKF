@@ -2,113 +2,126 @@ export const suggest = ({ causa, problema, sujeto, contexto }) => {
   const instrucciones = `
 Actúa como experto en metodología de investigación utilizando la estructura MIIC.
 
-Parte 1: Con base en los siguientes elementos de un problema de investigación:
+---
+
+📌 **Parte 1: Interrogantes adecuadas según tipo de elemento**
+
+Con base en los siguientes elementos:
 - Causa: ${causa}
 - Problema: ${problema}
 
-Y con base en esta lista de interrogantes con su propósito:
+Y la siguiente tabla de interrogantes y sus propósitos:
 
 ${Object.entries({
-  "Qué": "Se utiliza para identificar, describir o definir un fenómeno, concepto, hecho o situación",
-  "Cuál": "Se usa para seleccionar o identificar elementos específicos dentro de un conjunto conocido",
-  "Cuáles": "Se usa para seleccionar o identificar elementos específicos dentro de un conjunto conocido",
-  "Cómo": "Se enfoca en el procedimiento, la manera o el modo en que ocurre un fenómeno o proceso",
-  "Por qué": "Busca explicar las causas, motivos o razones de un hecho o fenómeno",
-  "Para qué": "Indaga sobre la finalidad o propósito de un hecho, acción o fenómeno",
-  "Quién": "Se refiere a las personas involucradas en un hecho, fenómeno o situación",
-  "Quiénes": "Se refiere a las personas involucradas en un hecho, fenómeno o situación",
-  "Dónde": "Interroga sobre el lugar o espacio donde ocurre un hecho o fenómeno",
-  "Cuándo": "Se refiere al momento o periodo temporal en el que ocurre un evento o situación",
-  "Cuánto": "Se utiliza para cuantificar elementos, frecuencias, proporciones o niveles",
-  "Cuántos": "Se utiliza para cuantificar elementos, frecuencias, proporciones o niveles",
-  "Con qué": "Interroga sobre los recursos, herramientas o medios utilizados para realizar algo",
-  "A través de qué": "Indaga sobre los canales, procesos o mecanismos por los cuales ocurre un fenómeno",
-  "Hasta qué punto": "Permite evaluar el grado, intensidad o límite de un fenómeno o efecto",
-  "En qué medida": "Se utiliza para analizar la proporción, impacto o alcance de algo",
-  "Bajo qué condiciones": "Explora los contextos o situaciones específicas en las que se manifiesta un fenómeno",
-  "Según quién": "Examina diferentes perspectivas, percepciones u opiniones sobre un tema",
-  "De qué manera": "Variante de '¿Cómo?', más frecuente en investigaciones cualitativas, centrada en el enfoque o estilo del proceso",
-  "Con quién": "Indaga sobre los actores o grupos con los que se lleva a cabo una acción o fenómeno",
-  "Desde dónde": "Explora la perspectiva, enfoque o punto de partida desde el cual se observa o analiza un fenómeno"
-}).map(([key, value]) => `- ${key}: ${value}`).join('\n')}
+  "Qué": "Identificar, describir o definir un fenómeno, concepto, hecho o situación.",
+  "Cuál": "Seleccionar o identificar elementos específicos dentro de un conjunto conocido.",
+  "Cuáles": "Seleccionar o identificar elementos específicos dentro de un conjunto conocido.",
+  "Cómo": "Indagar sobre el procedimiento, modo o proceso mediante el cual ocurre un fenómeno.",
+  "Por qué": "Explicar causas, motivos o razones.",
+  "Para qué": "Explorar finalidad o propósito.",
+  "Quién": "Identificar personas involucradas.",
+  "Quiénes": "Identificar grupos involucrados.",
+  "Dónde": "Ubicar espacialmente un fenómeno.",
+  "Cuándo": "Ubicar temporalmente un fenómeno.",
+  "Cuánto": "Cuantificar elementos, niveles o frecuencias.",
+  "Cuántos": "Cuantificar pluralidad.",
+  "Con qué": "Indagar sobre medios o recursos.",
+  "A través de qué": "Explorar canales o mecanismos.",
+  "Hasta qué punto": "Evaluar el grado o intensidad.",
+  "En qué medida": "Evaluar alcance o impacto.",
+  "Bajo qué condiciones": "Explorar el contexto o entorno.",
+  "Según quién": "Indagar percepciones u opiniones.",
+  "De qué manera": "Indagar el estilo, forma o enfoque.",
+  "Con quién": "Identificar actores o grupos.",
+  "Desde dónde": "Explorar enfoque o perspectiva."
+}).map(([k, v]) => `- ${k}: ${v}`).join('\n')}
 
-Selecciona las mejores interrogantes para los siguientes usos:
+Selecciona las mejores interrogantes para cada caso considerando:
 
-0. **ppi** → solo la Interrogante adecuada para formular la **pregunta principal de investigación**, que relacione **causa** (${causa}) y **problema** (${problema}).
-1. **i1** → solo la Interrogante adecuada para formular una **pregunta secundaria sobre la causa** (${causa}).
-2. **i2** → solo la Interrogante adecuada para formular una **pregunta secundaria sobre el problema** (${problema}).
-3. **i3** →  solo la Interrogante adecuada para formular una **pregunta secundaria que relacione causa y problema**.
+✅ Si el concepto es cuantificable → usar: "Cuánto", "Cuántos", "En qué medida", etc.  
+✅ Si describe un fenómeno → usar: "Qué", "Cómo", "De qué manera", etc.  
+✅ Si busca causas → usar: "Por qué"  
+🚫 No uses interrogantes que no correspondan a la naturaleza del término (por ejemplo, no uses “Cuánto” para conceptos cualitativos como “motivación”).
 
----
+Solicito las interrogantes para:
 
-Parte 2: Utilizando la estructura MIIC y con base en los siguientes datos adicionales:
-- Causa: ${causa}
-- Problema: ${problema}
-- Sujeto: ${sujeto}
-- Contexto: ${contexto}
+0. **ppi** → Interrogante más adecuada para la **pregunta principal de investigación**, que relacione causa y problema.  
+1. **i1** → Interrogante adecuada para formular una **pregunta secundaria sobre la causa**: (${causa}).  
+2. **i2** → Interrogante adecuada para formular una **pregunta secundaria sobre el problema**: (${problema}).  
+3. **i3** → Interrogante adecuada para una **pregunta secundaria que relacione causa y problema**.
 
-Sugiere el verbo más adecuado para formular el **objetivo general**, según el nivel de investigación (Exploratorio, Descriptivo o Explicativo).
+🔤 Elige la interrogante para que tenga sentido en esta formula:
+✅ Si el término representa una **variable cuantificable** como niveles, tasas, porcentajes (por ejemplo: desempleo, rendimiento, ingresos), entonces se pueden usar interrogantes como:  
+- "Cuánto"  
+- "Cuántos"  
+- "En qué medida"  
+- "Hasta qué punto"
 
-Guíate con esta tabla:
+- **Pregunta Secundaria 1**  
+  ¿i1 + (artículo adecuado) + ${causa} + ${sujeto} + de + ${contexto}?
 
-- Nivel Exploratorio: Conocer, Definir, Descubrir, Detectar, Estudiar, Explorar, Indagar, Sondear.
-- Nivel Descriptivo: Analizar, Calcular, Caracterizar, Clasificar, Comparar, Cuantificar, Describir, Examinar, Identificar, Medir.
-- Nivel Explicativo: Comprobar, Demostrar, Determinar, Establecer, Evaluar, Explicar, Inferir, Relacionar, Verificar.
+- **Pregunta Secundaria 2**  
+  ¿i2 + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
----
+- **Pregunta Secundaria 3**  
+  ¿i3 + (artículo adecuado) + ${causa} + preposición + "y no" + preposición + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
-Parte 3: Para cada uno de los 3 **objetivos específicos** (Objetivo Específico 1, 2 y 3), sugiere un verbo de esta lista, tomando en cuenta la causa, problema, sujeto y contexto:
 
-[... (lista de verbos específicos como ya tienes)]
-
----
-
-Parte 4: Sugiere también la **preposición** más adecuada para formular los objetivos, basándote en el siguiente listado de verbos con su significado, y selecciona la preposición que mejor se adapte a la relación causa-problema en este caso:
-
-- Afecta : "Indica que una variable tiene un impacto negativo o positivo sobre otra"
-- Influye : "Expresa una acción que altera o modifica otra cosa"
-- Incide : "Señala un efecto directo sobre algo específico"
-- Repercute : "Denota consecuencias indirectas o secundarias"
-- Impacta : "Indica un efecto fuerte o significativo"
-- Relaciona : "Une dos elementos con algún tipo de vínculo"
-- Asocia : "Conecta conceptos por coincidencia o co-ocurrencia"
-- Vincula : "Establece una relación directa entre dos variables"
-- Depende : "Muestra subordinación o necesidad de una variable respecto a otra"
-- Determina : "Señala que una variable define o fija el valor o comportamiento de otra"
-- Condiciona : "Indica que una variable impone límites o requisitos sobre otra"
-- Provoca : "Causa un cambio, efecto o reacción"
-- Genera : "Produce un resultado o consecuencia"
-- Origina : "Señala el punto de partida o causa de un fenómeno"
-- Produce : "Da lugar a un efecto observable"
-- Resulta : "Expresa una consecuencia o desenlace"
-- Deriva : "Indica que algo se obtiene o se origina de otra cosa"
-- Conduce : "Muestra una dirección o consecuencia hacia algo"
-- Contribuye : "Aporta a la formación o desarrollo de un resultado"
-- Aporta : "Da un elemento que forma parte de un todo"
-- Estimula : "Fomenta o activa una respuesta o proceso"
-- Impulsa : "Promueve o acelera una acción o cambio"
-- Mejora : "Indica un cambio positivo o favorable"
-- Disminuye : "Reduce la cantidad, intensidad o frecuencia de algo"
-- Obstaculiza : "Dificulta o impide el logro de un objetivo"
-- Aumenta : "Incrementa la magnitud o frecuencia de algo"
-- Reduce : "Disminuye en cantidad o intensidad"
-- Facilita : "Hace más sencillo o accesible un proceso"
-- Promueve : "Incentiva o favorece una acción o resultado"
-- Refuerza : "Fortalece un efecto o comportamiento"
-- Modifica : "Cambia parcial o totalmente una variable"
-- Regula : "Controla o ajusta el funcionamiento de algo"
-- Controla : "Impone límites o maneja un fenómeno"
-- Potencia : "Incrementa la capacidad o eficacia de algo"
-- Influencia : "Forma sustantivada de “influir”; denota capacidad de alterar"
-- Explica : "Da razón o justificación de un fenómeno"
-- Sustenta : "Apoya o da base teórica a una afirmación o proceso"
-- Establece : "Fija relaciones, principios o conexiones"
-- Limita : "Restringe o reduce la posibilidad de acción"
-- Justifica : "Fundamenta o respalda una acción, hipótesis o resultado"
 
 ---
 
-📌 Devuelve **únicamente** el siguiente JSON, sin explicaciones ni texto adicional:
+📌 **Parte 2: Verbo para Objetivo General**
+
+Sugiere el verbo más adecuado según el nivel de investigación implícito entre causa y problema:
+
+- **Exploratorio**: Conocer, Definir, Descubrir, Detectar, Estudiar, Explorar, Indagar, Sondear.  
+- **Descriptivo**: Analizar, Calcular, Caracterizar, Clasificar, Comparar, Cuantificar, Describir, Examinar, Identificar, Medir.  
+- **Explicativo**: Comprobar, Demostrar, Determinar, Establecer, Evaluar, Explicar, Inferir, Relacionar, Verificar.
+
+---
+
+📌 **Parte 3: Verbos para objetivos específicos**
+
+Sugiere un verbo apropiado (de los anteriores u otros si aplica) para los tres **Objetivos Específicos**, considerando el enfoque y relación entre causa, problema, sujeto y contexto.
+
+---
+
+📌 **Parte 4: Preposición sugerida**
+
+Selecciona la **preposición** que mejor conecte causa y problema, basada en esta tabla semántica:
+
+${[
+  ["Afecta", "impacto positivo o negativo"],
+  ["Influye", "acción que altera o modifica"],
+  ["Incide", "efecto directo"],
+  ["Repercute", "consecuencias indirectas"],
+  ["Impacta", "efecto fuerte o significativo"],
+  ["Relaciona", "vínculo entre dos elementos"],
+  ["Asocia", "co-ocurrencia o coincidencia"],
+  ["Vincula", "relación directa entre variables"],
+  ["Depende", "subordinación o necesidad"],
+  ["Determina", "define o fija comportamiento"],
+  ["Condiciona", "impone límites o requisitos"],
+  ["Provoca", "causa un efecto o cambio"],
+  ["Genera", "produce un resultado"],
+  ["Produce", "da lugar a un efecto observable"],
+  ["Resulta", "consecuencia final"],
+  ["Conduce", "lleva a un resultado"],
+  ["Contribuye", "aporta al desarrollo de algo"],
+  ["Estimula", "activa una respuesta"],
+  ["Facilita", "hace más accesible"],
+  ["Promueve", "favorece una acción"],
+  ["Refuerza", "fortalece un fenómeno"],
+  ["Modifica", "altera total o parcialmente"],
+  ["Controla", "maneja o limita"],
+  ["Potencia", "incrementa eficacia o capacidad"],
+  ["Explica", "da razón o fundamento"],
+  ["Justifica", "respalda con fundamento"]
+].map(([verbo, definicion]) => `- ${verbo}: "${definicion}"`).join('\n')}
+
+---
+
+📦 Devuelve **únicamente** el siguiente JSON. No incluyas explicaciones ni texto adicional:
 
 {
   "ppi": "...",
@@ -125,3 +138,6 @@ Parte 4: Sugiere también la **preposición** más adecuada para formular los ob
 
   return instrucciones;
 };
+
+
+

@@ -35,23 +35,25 @@ Genera los siguientes componentes de un proyecto de investigación académica ut
 ---
 
 1. **Pregunta Principal de Investigación (P.P.I)**  
-**Fórmula**: ¿${interrogante} + (artículo adecuado) + ${causa} + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
+**Fórmula**: ¿${interrogante} + (artículo adecuado) + ${causa} + ${preposicion} + en +(artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 2. **Objetivo General**  
-**Fórmula**: ${verbo} + (artículo adecuado) + ${causa} + que  + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula**: ${verbo} + (artículo adecuado) + ${causa} + que  + ${preposicion} + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 3. **Título del Proyecto**  
 **Fórmula**: (artículo adecuado) + ${causa} + y + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 4. **Hipótesis**  
-**Fórmula**: (artículo adecuado) + ${causa} + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula**: (artículo adecuado) + ${causa} + ${preposicion} + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 5. **Hipótesis Nula**  
-**Fórmula**: (artículo adecuado) + ${causa} + no + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
+**Fórmula**: (artículo adecuado) + ${causa} + no + ${preposicion} + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 ${
   subProbl && subcau
     ? `
+    """ sigue al pie de la letra la formula, no agregues elementos de mas"""
+    
 6. **Pregunta Secundaria 1**  
 ¿${i1} + (artículo adecuado) + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
 
@@ -59,7 +61,7 @@ ${
 ¿${i2} + (artículo adecuado) + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + en  + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 9. **Objetivo Específico 1**  
 ${v1} + (artículo adecuado) + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
@@ -68,17 +70,19 @@ ${v1} + (artículo adecuado) + ${causa} + ${subcau} + ${sujeto} + de + ${context
 ${v2} + (artículo adecuado) + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}
 
 11. **Objetivo Específico 3**  
-${v3} + (artículo adecuado) + ${causa} + que + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
+${v3} + (artículo adecuado) + ${causa} + que + ${preposicion} + "y no" + ${preposicion} + en  + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 `
     : `
+
+    """ sigue al pie de la letra la formula, no agregues elementos de mas"""
 6. **Pregunta Secundaria 1**  
 ¿${i1} + (artículo adecuado) + ${causa} + ${sujeto} + de + ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i2} + (artículo adecuado) + ${problema} + en + ${sujeto} + de + ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 9. **Objetivo Específico 1**  
 ${v1} + (artículo adecuado) + ${causa} + ${sujeto} + de + ${contexto}
@@ -87,7 +91,7 @@ ${v1} + (artículo adecuado) + ${causa} + ${sujeto} + de + ${contexto}
 ${v2} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 11. **Objetivo Específico 3**  
-${v3} + (artículo adecuado) + ${causa} + que + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
+${v3} + (artículo adecuado) + ${causa} + que + ${preposicion} + "y no" + ${preposicion} + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 `
 }
 
