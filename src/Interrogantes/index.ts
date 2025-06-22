@@ -19,7 +19,7 @@ Genera los siguientes componentes de un proyecto de investigación académica ut
 
 ✅ Usa **las variables exactamente como están proporcionadas**.  
 ✅ Redacta con **naturalidad y coherencia académica** en español.  
-✅ Agrega **artículos definidos** ("el", "la", "los", "las") y **conectores** ("que", "cómo", "de qué manera") **solo cuando sea necesario para que la frase suene natural**.  
+✅ Agrega **artículos definidos** ("el", "la", "los", "las") y **conectores** ("que", "cómo", "de qué manera") **solo cuando sea necesario para que la frase suene natural y académica**.  
 ✅ Respeta la **estructura lógica MIIC**: verbo + variable + sujeto + contexto.  
 🚫 No expliques, no reformules, no adornes.  
 🚫 No escribas “en el contexto de”.
@@ -35,61 +35,63 @@ Genera los siguientes componentes de un proyecto de investigación académica ut
 ---
 
 1. **Pregunta Principal de Investigación (P.P.I)**  
-**Fórmula**: ¿${interrogante} ${causa} ${preposicion} ${problema} ${sujeto} de ${contexto}?
+**Fórmula**: ¿${interrogante} + (artículo adecuado) + ${causa} + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 2. **Objetivo General**  
-**Fórmula**: ${verbo} ${causa} ${preposicion} ${problema} ${sujeto} de ${contexto}
+**Fórmula**: ${verbo} + (artículo adecuado) + ${causa} + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 3. **Título del Proyecto**  
-**Fórmula**: ${causa} y ${problema} ${sujeto} de ${contexto}
+**Fórmula**: (artículo adecuado) + ${causa} + y + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 4. **Hipótesis**  
-**Fórmula**: ${causa} ${preposicion} ${problema} ${sujeto} de ${contexto}
+**Fórmula**: (artículo adecuado) + ${causa} + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 5. **Hipótesis Nula**  
-**Fórmula**: ${causa} no ${preposicion} ${problema} ${sujeto} de ${contexto}
+**Fórmula**: (artículo adecuado) + ${causa} + no + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 ${
   subProbl && subcau
     ? `
 6. **Pregunta Secundaria 1**  
-¿${i1} ${causa} ${subcau} ${sujeto} de ${contexto}?
+¿${i1} + (artículo adecuado) + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} ${problema} ${subProbl} ${sujeto} de ${contexto}?
+¿${i2} + (artículo adecuado) + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} ${causa} ${preposicion} y no ${problema} ${sujeto} de ${contexto}?
+¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 9. **Objetivo Específico 1**  
-${v1} ${causa} ${subcau} ${sujeto} de ${contexto}
+${v1} + (artículo adecuado) + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
 
 10. **Objetivo Específico 2**  
-${v2} ${problema} ${subProbl} ${sujeto} de ${contexto}
+${v2} + (artículo adecuado) + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}
 
 11. **Objetivo Específico 3**  
-${v3} ${causa} ${preposicion} y no ${problema} ${sujeto} de ${contexto}
+${v3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 `
     : `
 6. **Pregunta Secundaria 1**  
-¿${i1} ${causa} ${sujeto} de ${contexto}?
+¿${i1} + (artículo adecuado) + ${causa} + ${sujeto} + de + ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} ${problema} ${sujeto} de ${contexto}?
+¿${i2} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} ${causa} ${preposicion} y no ${preposicion} ${problema} ${sujeto} de ${contexto}?
+¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 9. **Objetivo Específico 1**  
-${v1} ${causa} ${sujeto} de ${contexto}
+${v1} + (artículo adecuado) + ${causa} + ${sujeto} + de + ${contexto}
 
 10. **Objetivo Específico 2**  
-${v2} ${problema} ${sujeto} de ${contexto}
+${v2} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 
 11. **Objetivo Específico 3**  
-${v3} ${causa} ${preposicion} y no ${preposicion} ${problema} ${sujeto} de ${contexto}
+${v3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}
 `
 }
+
+---
 
 📌 **Devuelve todos los resultados en un solo objeto JSON**, con la siguiente estructura:
 
@@ -106,7 +108,10 @@ ${v3} ${causa} ${preposicion} y no ${preposicion} ${problema} ${sujeto} de ${con
   "10. Objetivo Específico 2": "...",
   "11. Objetivo Específico 3": "..."
 }
-  `;
+
+📌 No expliques ni reformules. Solo genera frases académicas, naturales y correctas a partir de las variables.
+
+`;
 
   return instrucciones;
 };

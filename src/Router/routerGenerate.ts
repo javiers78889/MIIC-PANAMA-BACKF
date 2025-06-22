@@ -25,6 +25,14 @@ router.post('/',
     handleInputErrors,
     jwtGuard,
     GenerateData.sendData)
+router.post('/suggest',
+    body('causa').notEmpty().withMessage('La causa no puede ir vacia'),
+    body('problema').notEmpty().withMessage('El problema no puede ir vacio'),
+    body('sujeto').notEmpty().withMessage('El sujeto no puede ir vacio'),
+    body('contexto').notEmpty().withMessage('El contexto no puede ir vacio'),
+    handleInputErrors,
+    jwtGuard,
+    GenerateData.suggestUser)
 
 
 export default router

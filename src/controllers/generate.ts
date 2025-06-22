@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import getChatCompletion from "../config/huggingface.config";
 import dotenv from 'dotenv'
 import { preguntaPrincipal } from "../Interrogantes";
+import { suggest } from "../Interrogantes/suiggest";
 
 dotenv.config()
 
@@ -11,18 +12,33 @@ class GenerateData {
 
 
     static sendData = async (req: Request, res: Response) => {
-        
+
         const principal = preguntaPrincipal(req.body)
-    
-    
-         try {
+
+
+        try {
             const pPrincipal = await getChatCompletion(principal)
             res.status(200).json(pPrincipal)
         } catch (error) {
-            
+
             res.status(401).json({ error: "Token agotados" })
         }
-    
+
+    }
+
+    static suggestUser = async (req: Request, res: Response) => {
+
+        const principal = suggest(req.body)
+
+
+        try {
+            const pPrincipal = await getChatCompletion(principal)
+            res.status(200).json(JSON.parse(pPrincipal))
+        } catch (error) {
+
+            res.status(401).json({ error: "Token agotados" })
+        }
+
     }
 }
 
