@@ -122,7 +122,7 @@ ${[
 ---
 
 📦 Devuelve **únicamente** el siguiente JSON. No incluyas explicaciones ni texto adicional:
-
+    """devuelve solo
 {
   "ppi": "...",
   "i1": "...",

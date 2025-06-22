@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
-import getChatCompletion from "../config/huggingface.config";
 import dotenv from 'dotenv'
 import { preguntaPrincipal } from "../Interrogantes";
 import { suggest } from "../Interrogantes/suiggest";
+import getChatCompletion from "../config/huggingface.config";
+import getChatCompletionq from "../config/openRouterconfig";
 
 dotenv.config()
 
@@ -32,7 +33,7 @@ class GenerateData {
 
 
         try {
-            const pPrincipal = await getChatCompletion(principal)
+            const pPrincipal = await getChatCompletionq(principal)
             res.status(200).json(JSON.parse(pPrincipal))
         } catch (error) {
 
