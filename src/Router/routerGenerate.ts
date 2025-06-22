@@ -9,7 +9,7 @@ import { limiterQuery } from "../middleware/limiter";
 
 const router = Router()
 
-router.use(limiterQuery)
+//router.use(limiterQuery)
 
 router.post('/',
     body('causa').notEmpty().withMessage('La causa no puede ir vacia'),
