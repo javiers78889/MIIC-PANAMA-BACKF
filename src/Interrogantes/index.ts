@@ -6,8 +6,8 @@ export const preguntaPrincipal = ({
   problema,
   sujeto,
   contexto,
-  v1,v2,v3,
-  i1,i2,i3,
+  v1, v2, v3,
+  i1, i2, i3,
   subproblemas = [],
   subcausas = [],
 }) => {
@@ -15,133 +15,98 @@ export const preguntaPrincipal = ({
   const subcau = subcausas.join(' + ');
 
   const instrucciones = `
-Genera los siguientes componentes de un proyecto de investigación académica utilizando las fórmulas indicadas. Cada enunciado debe cumplir las siguientes condiciones:
+Genera los siguientes componentes de un proyecto de investigación académica utilizando la metodología MIIC, siguiendo las fórmulas y lineamientos descritos.
 
-✅ Sigue exactamente las fórmulas dadas, usando las variables proporcionadas.  
-✅ Redacta con **coherencia, fluidez y naturalidad en español académico**.  
-✅ Agrega **artículos definidos** ("el", "la", "los", "las") y **conectores gramaticales mínimos** ("cómo", "de qué manera", etc.) **solo cuando sean necesarios para que la oración tenga sentido y suene natural**.  
-✅ Mantén el orden lógico de los elementos.  
+✅ Usa **las variables exactamente como están proporcionadas**.  
+✅ Redacta con **naturalidad y coherencia académica** en español.  
+✅ Agrega **artículos definidos** ("el", "la", "los", "las") y **conectores** ("que", "cómo", "de qué manera") **solo cuando sea necesario para que la frase suene natural**.  
+✅ Respeta la **estructura lógica MIIC**: verbo + variable + sujeto + contexto.  
 🚫 No expliques, no reformules, no adornes.  
 🚫 No escribas “en el contexto de”.
 
 ---
 
-📌 **IMPORTANTE – Ejemplos de redacción correcta e incorrecta:**
+📌 **Ejemplo correcto**:  
+✅ ¿Qué conflictos familiares se asocian al consumo de cocaína de los jóvenes universitarios?
 
-❌ Incorrecto Pregunta Principal de Investigación (P.P.I): ¿Cómo experiencia laboral afecta desempleo estudiantes de ISAE Universidad?  
-✅ Correcto Pregunta Principal de Investigación (P.P.I): ¿Cómo *la* experiencia laboral afecta *el* desempleo *de los* estudiantes de ISAE Universidad?
-
-❌ Incorrecto Objetivo General: Analizar cómo el conocimiento sobre la metodología de la investigación limita la producción científica de los estudiantes universitarios 
-✅ Correcto Objetivo General: Analizar el conocimiento sobre la metodología de la investigación limita la producción científica de los estudiantes universitarios
-
-❌ Incorrecto Objetivo Específico 3: Establecer cómo el conocimiento sobre la metodología de la investigación limita y no limita la producción científica de los estudiantes universitarios
-✅ Correcto Objetivo Específico 3:Establecer el conocimiento sobre la metodología de la investigación limita y no limita la producción científica de los estudiantes universitarios
-
-❌ Incorrecto Pregunta Secundaria 1: ¿Qué conocimiento sobre la metodología de la investigación influye en el planteamiento de problemas y en el diseño de marco teórico de los estudiantes universitarios?
-✅ Correcto Pregunta Secundaria 1:¿Qué conocimiento sobre la metodología de la investigación planteamiento de problemas y en el diseño de marco teórico de los estudiantes universitarios? en esta pregunta aparece influye, debemos eliminarla.
-
-
+📌 **Ejemplo incorrecto**:  
+❌ ¿Qué conflictos familiares afectan consumo cocaína jóvenes universitarios?
 
 ---
 
 1. **Pregunta Principal de Investigación (P.P.I)**  
-**Fórmula**: ¿${interrogante} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}?
-
----
+**Fórmula**: ¿${interrogante} ${causa} ${preposicion} ${problema} ${sujeto} de ${contexto}?
 
 2. **Objetivo General**  
-**Fórmula**: ${verbo} + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
----
+**Fórmula**: ${verbo} ${causa} ${preposicion} ${problema} ${sujeto} de ${contexto}
 
 3. **Título del Proyecto**  
-**Fórmula**: ${causa} + y + ${problema} + ${sujeto} + de + ${contexto}
-
----
+**Fórmula**: ${causa} y ${problema} ${sujeto} de ${contexto}
 
 4. **Hipótesis**  
-**Fórmula**: (artículo adecuado) + ${causa} + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
----
+**Fórmula**: ${causa} ${preposicion} ${problema} ${sujeto} de ${contexto}
 
 5. **Hipótesis Nula**  
-**Fórmula**: (artículo adecuado) + ${causa} + no + ${preposicion} + ${problema} + ${sujeto} + de + ${contexto}
-
----
+**Fórmula**: ${causa} no ${preposicion} ${problema} ${sujeto} de ${contexto}
 
 ${
   subProbl && subcau
     ? `
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
-
----
+¿${i1} ${causa} ${subcau} ${sujeto} de ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
-
----
+¿${i2} ${problema} ${subProbl} ${sujeto} de ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
-
----
+¿${i3} ${causa} ${preposicion} y no ${problema} ${sujeto} de ${contexto}?
 
 9. **Objetivo Específico 1**  
-${v1} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
-
----
+${v1} ${causa} ${subcau} ${sujeto} de ${contexto}
 
 10. **Objetivo Específico 2**  
-${v2} + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}
-
----
+${v2} ${problema} ${subProbl} ${sujeto} de ${contexto}
 
 11. **Objetivo Específico 3**  
-${v3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
-
----`
+${v3} ${causa} ${preposicion} y no ${problema} ${sujeto} de ${contexto}
+`
     : `
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + ${sujeto} + de + ${contexto}?
-
----
+¿${i1} ${causa} ${sujeto} de ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} + ${problema} + ${sujeto} + de + ${contexto}?
-
----
+¿${i2} ${problema} ${sujeto} de ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}?
-
----
+¿${i3} ${causa} ${preposicion} y no ${preposicion} ${problema} ${sujeto} de ${contexto}?
 
 9. **Objetivo Específico 1**  
-${v1} + ${causa} + ${sujeto} + de + ${contexto}
-
----
+${v1} ${causa} ${sujeto} de ${contexto}
 
 10. **Objetivo Específico 2**  
-${v2} + ${problema} + ${sujeto} + de + ${contexto}
-
----
+${v2} ${problema} ${sujeto} de ${contexto}
 
 11. **Objetivo Específico 3**  
-${v3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${contexto}
-
----`
+${v3} ${causa} ${preposicion} y no ${preposicion} ${problema} ${sujeto} de ${contexto}
+`
 }
 
-📌 **Devuelve las respuestas como un solo objeto JSON con sus claves**,
+📌 **Devuelve todos los resultados en un solo objeto JSON**, con la siguiente estructura:
 
-📌 Antes de cada resultado, escribe el número y el nombre del componente.
-
-📌 No expliques, no reformules, no justifiques. Solo genera las frases **correctas, naturales y académicas** a partir de las variables.
-
-
-
-`;
+{
+  "1. Pregunta Principal de Investigación": "...",
+  "2. Objetivo General": "...",
+  "3. Título del Proyecto": "...",
+  "4. Hipótesis": "...",
+  "5. Hipótesis Nula": "...",
+  "6. Pregunta Secundaria 1": "...",
+  "7. Pregunta Secundaria 2": "...",
+  "8. Pregunta Secundaria 3": "...",
+  "9. Objetivo Específico 1": "...",
+  "10. Objetivo Específico 2": "...",
+  "11. Objetivo Específico 3": "..."
+}
+  `;
 
   return instrucciones;
 };
