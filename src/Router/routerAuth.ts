@@ -11,7 +11,7 @@ const router = Router()
 
 const auth = new Auth(Users,Mailer)
 
-//router.use(limiter)
+router.use(limiter)
 
 router.post('/login',
     body('email').isEmail().withMessage('Email no válido'),

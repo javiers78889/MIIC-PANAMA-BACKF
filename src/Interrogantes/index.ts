@@ -28,8 +28,13 @@ Genera los siguientes componentes de un proyecto de investigación académica ut
 
 📌 **IMPORTANTE – Ejemplos de redacción correcta e incorrecta:**
 
-❌ Incorrecto: ¿Cómo experiencia laboral afecta desempleo estudiantes de ISAE Universidad?  
-✅ Correcto: ¿Cómo *la* experiencia laboral afecta *el* desempleo *de los* estudiantes de ISAE Universidad?
+❌ Incorrecto Pregunta Principal de Investigación (P.P.I): ¿Cómo experiencia laboral afecta desempleo estudiantes de ISAE Universidad?  
+✅ Correcto Pregunta Principal de Investigación (P.P.I): ¿Cómo *la* experiencia laboral afecta *el* desempleo *de los* estudiantes de ISAE Universidad?
+
+❌ Incorrecto Objetivo General: Analizar cómo el conocimiento sobre la metodología de la investigación limita la producción científica de los estudiantes universitarios 
+✅ Correcto Objetivo General: Analizar el conocimiento sobre la metodología de la investigación limita la producción científica de los estudiantes universitarios
+
+
 
 ---
 
@@ -62,7 +67,7 @@ ${
   subProbl && subcau
     ? `
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}?
+¿${i1} + ${causa} + ${subcau} + ${preposicion} + ${sujeto} + de + ${contexto}?
 
 ---
 
@@ -92,7 +97,7 @@ ${v3} + ${causa} + ${preposicion} + y no + ${problema} + ${sujeto} + de + ${cont
 ---`
     : `
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + ${sujeto} + de + ${contexto}?
+¿${i1} + ${causa} + ${preposicion} + ${sujeto} + de + ${contexto}?
 
 ---
 
