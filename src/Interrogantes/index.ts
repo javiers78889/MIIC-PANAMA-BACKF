@@ -61,7 +61,7 @@ ${
 ¿${i2} + (artículo adecuado) + ${problema} + ${subProbl} + ${sujeto} + de + ${contexto}?
 
 8. **Pregunta Secundaria 3**  
-¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + en  + en + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
+¿${i3} + (artículo adecuado) + ${causa} + ${preposicion} + "y no" + ${preposicion} + en  + (artículo adecuado) + ${problema} + ${sujeto} + de + ${contexto}?
 
 9. **Objetivo Específico 1**  
 ${v1} + (artículo adecuado) + ${causa} + ${subcau} + ${sujeto} + de + ${contexto}
