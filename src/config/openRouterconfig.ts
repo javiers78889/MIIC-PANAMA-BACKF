@@ -13,15 +13,19 @@ function limpiarThinkTags(texto: string): string {
 
 
 export default async function getChatCompletionq(instrucciones: string) {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            "Authorization": `Bearer ${process.env.OPENAIKEY}`,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            model: "openai/gpt-4o-mini", // puedes cambiar por otro modelo de OpenRouter
+            model: "ft:gpt-4o-mini-2024-07-18:javier:expert-miic-verb:BlgC9czX", // puedes cambiar por otro modelo de OpenRouter
             messages: [
+                {
+                    "role": "system",
+                    "content": "Eres un asistente experto en investigación universitaria."
+                },
              
                 {
                     role: "user",
