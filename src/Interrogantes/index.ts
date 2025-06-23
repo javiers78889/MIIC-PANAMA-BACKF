@@ -41,7 +41,7 @@ Genera los siguientes componentes de un proyecto de investigación académica ut
 **Fórmula**: ${verbo} + (artículo adecuado) + ${causa} + que  + ${preposicion} + en + (artículo adecuado) + ${problema} + en  + ${sujeto} + de + ${contexto}
 
 3. **Título del Proyecto**  
-**Fórmula**: (artículo adecuado) + ${causa} + y + (artículo adecuado) + ${problema} + en  + ${sujeto} + de + ${contexto}
+**Fórmula**:  ${causa} + y  + ${problema} + en  + ${sujeto} + de + ${contexto}
 
 4. **Hipótesis**  
 **Fórmula**: (artículo adecuado) + ${causa} + ${preposicion} + en + (artículo adecuado) + ${problema} + en  + ${sujeto} + de + ${contexto}
