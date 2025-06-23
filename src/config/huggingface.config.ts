@@ -20,7 +20,7 @@ export default async function getChatCompletion(instrucciones: string) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            model: "ft:gpt-4o-2024-08-06:javier:ok:BlR1fnJP", // puedes cambiar por otro modelo de OpenRouter
+            model: "ft:gpt-4o-mini-2024-07-18:javier:celedingo:BlcDyx7R", // puedes cambiar por otro modelo de OpenRouter
             messages: [
                 {
                     "role": "system",
