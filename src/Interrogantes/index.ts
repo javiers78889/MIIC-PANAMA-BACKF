@@ -51,16 +51,15 @@ Genera los siguientes componentes de un proyecto de investigación académica ut
 5. **Hipótesis Nula**  
 **Fórmula**: {artículo} + ${causa} + no + ${preposicion} + {preposición} + {artículo} + ${problema} + {preposición} + {artículo} + ${sujeto} + {preposición} + {artículo} + ${contexto}
 
-${
-  subProbl && subcau
-    ? `
+${subProbl && subcau
+      ? `
     """ sigue al pie de la letra la fórmula, no agregues elementos de más """
 
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + ${subcau} + {pronombre + verbo ejem:"se dan,se presentan ,presentan ,etc..." (solo si es necesario) } + {preposición} + {artículo} +  ${sujeto} + {preposición} + {artículo} + ${contexto}?
+¿${i1} + ${causa}, + ${subcau} + {pronombre + verbo ejem:"se dan,se presentan ,presentan ,etc..." (solo si es necesario) } + {preposición} + {artículo} +  ${sujeto} + {preposición} + {artículo} + ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} (artículo si es necesario) ${problema} ${subProbl} en ${sujeto} de ${contexto}?
+¿${i2} + (artículo si es necesario) + ${problema}, + ${subProbl} + {pronombre + verbo ejem:"se dan,se presentan ,presentan ,etc..." (solo si es necesario) } + {preposición} + ${sujeto} + {artículo} + ${contexto}?
 
 8. **Pregunta Secundaria 3**  
 ¿${i3} (artículo si es necesario) ${causa} ${preposicion} "y no" ${preposicion} en (artículo si es necesario) ${problema} en ${sujeto} de ${contexto}?
@@ -74,15 +73,15 @@ ${v2} (artículo si es necesario) ${problema} ${subProbl} ${sujeto} de ${context
 11. **Objetivo Específico 3**  
 ${v3} (artículo si es necesario) ${causa} que ${preposicion} "y no" ${preposicion} en (artículo si es necesario) ${problema} ${sujeto} de ${contexto}
 `
-    : `
+      : `
 
     """ sigue al pie de la letra la fórmula, no agregues elementos de más """
 
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + {pronombre (si es necesario solamente)} + {verbo} + {preposición (si es necesaria)} + {artículo} +  ${sujeto} + {preposición} + {artículo} + ${contexto}?
+¿${i1} + ${causa} + {pronombre + verbo ejem:"se dan,se presentan ,presentan ,etc..." (solo si es necesario) } + {preposición (si es necesaria)} + {artículo} +  ${sujeto} + {preposición} + {artículo} + ${contexto}?
 
 7. **Pregunta Secundaria 2**  
-¿${i2} +{verbo (si es necesario)} + {articulo (si es necesario)} ${problema} + {preposición} +{artículo} + ${sujeto} de ${contexto}?
+¿${i2} +{verbo (si es necesario)} + {articulo (si es necesario)} ${problema} + {pronombre + verbo ejem:"se dan,se presentan ,presentan ,etc..." (solo si es necesario) } + {preposición} + {artículo} + ${sujeto} de ${contexto}?
 
 8. **Pregunta Secundaria 3**  
 ¿${i3} (artículo adecuado) ${causa} ${preposicion} "y no" ${preposicion} en (artículo si es necesario) ${problema} en ${sujeto} de ${contexto}?
@@ -96,7 +95,7 @@ ${v2} (artículo si es necesario) ${problema} en ${sujeto} de ${contexto}
 11. **Objetivo Específico 3**  
 ${v3} (artículo si es necesario) ${causa} que ${preposicion} "y no" ${preposicion} en (artículo adecuado) ${problema} en ${sujeto} de ${contexto}
 `
-}
+    }
 
 ---
 
@@ -124,3 +123,31 @@ ${v3} (artículo si es necesario) ${causa} que ${preposicion} "y no" ${preposici
 
   return instrucciones;
 };
+
+
+
+
+export const refinando = ({ data }: { data: string }) => {
+  const intrucciones = `
+
+  refiname esto, completa las conexiones que hacen falta= ${data}
+  📌 **Devuelve todos los resultados en un solo objeto JSON**, con la siguiente estructura:
+
+{
+  "1. Pregunta Principal de Investigación": "...",
+  "2. Objetivo General": "...",
+  "3. Título del Proyecto": "...",
+  "4. Hipótesis": "...",
+  "5. Hipótesis Nula": "...",
+  "6. Pregunta Secundaria 1": "...",
+  "7. Pregunta Secundaria 2": "...",
+  "8. Pregunta Secundaria 3": "...",
+  "9. Objetivo Específico 1": "...",
+  "10. Objetivo Específico 2": "...",
+  "11. Objetivo Específico 3": "..."
+}
+  
+  `;
+
+  return intrucciones
+}
