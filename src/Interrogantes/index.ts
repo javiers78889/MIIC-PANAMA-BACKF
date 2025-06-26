@@ -57,7 +57,7 @@ ${
     """ sigue al pie de la letra la fórmula, no agregues elementos de más """
 
 6. **Pregunta Secundaria 1**  
-¿${i1} + ${causa} + ${subcau} + {pronombre + verbo ejem:"se dan,etc..." (solo si es necesario) } + {preposición} + {artículo} +  ${sujeto} + {preposición} + {artículo} + ${contexto}?
+¿${i1} + ${causa} + ${subcau} + {pronombre + verbo ejem:"se dan,se presentan ,presentan ,etc..." (solo si es necesario) } + {preposición} + {artículo} +  ${sujeto} + {preposición} + {artículo} + ${contexto}?
 
 7. **Pregunta Secundaria 2**  
 ¿${i2} (artículo si es necesario) ${problema} ${subProbl} en ${sujeto} de ${contexto}?
