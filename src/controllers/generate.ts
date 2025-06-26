@@ -33,7 +33,7 @@ class GenerateData {
 
 
         try {
-            const pPrincipal = await getChatCompletionq(principal)
+            const pPrincipal = await getChatCompletion(principal)
             res.status(200).json(JSON.parse(pPrincipal))
         } catch (error) {
 
