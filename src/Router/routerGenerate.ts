@@ -30,6 +30,7 @@ router.post('/suggest',
     body('problema').notEmpty().withMessage('El problema no puede ir vacio'),
     body('sujeto').notEmpty().withMessage('El sujeto no puede ir vacio'),
     body('contexto').notEmpty().withMessage('El contexto no puede ir vacio'),
+    body('nivel').notEmpty().withMessage('El nivel no puede ir vacio'),
     handleInputErrors,
     jwtGuard,
     GenerateData.suggestUser)

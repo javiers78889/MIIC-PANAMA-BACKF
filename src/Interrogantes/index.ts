@@ -129,7 +129,7 @@ ${v3} (artículo si es necesario) ${causa} que ${preposicion} "y no" ${preposici
 
 export const refinando = ({ data }: { data: string }) => {
   const intrucciones = `
-
+ """ devuelve solos el JSON sin explicaciones"""
   refiname esto, completa las conexiones que hacen falta= ${data}
   📌 **Devuelve todos los resultados en un solo objeto JSON**, con la siguiente estructura:
 
