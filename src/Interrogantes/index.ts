@@ -98,8 +98,8 @@ ${v3} (artículo si es necesario) ${causa} que ${preposicion} "y no" ${preposici
     }
 
 ---
-
-📌 **Devuelve todos los resultados en un solo objeto JSON**, con la siguiente estructura:
+"""devuelve solos el JSON sin explicaciones"""
+📌 **Devuelve  todos los resultados en un solo objeto JSON**, con la siguiente estructura:
 
 {
   "1. Pregunta Principal de Investigación": "...",
