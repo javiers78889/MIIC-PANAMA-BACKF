@@ -11,6 +11,9 @@ const envschema = z.object({
     EMAIL: z.string().email({ message: 'El correo debe ser un email válido' }).nonempty({ message: 'El correo no puede ir vacío' }),
     PASS: z.string().nonempty({ message: 'La contraseña no puede ir vacía' }),
     FRONTEND: z.string().url({ message: 'El frontend debe ser una URL válida' }).nonempty({ message: 'El frontend no puede ir vacío' }),
+    PAYPAL_CLIENT_ID: z.string().nonempty({ message: 'El ID de cliente de PayPal no puede ir vacío' }),
+    PAYPAL_CLIENT_SECRET: z.string().nonempty({ message: 'El secreto de cliente de PayPal no puede ir vacío' }),
+    PAYPAL_MODE: z.enum(['sandbox', 'live'])
 })
 
 
@@ -29,6 +32,9 @@ const envs = {
     EMAIL: validate.EMAIL,
     PASS: validate.PASS,
     FRONTEND: validate.FRONTEND,
+    PAYPAL_CLIENT_ID: validate.PAYPAL_CLIENT_ID,
+    PAYPAL_CLIENT_SECRET: validate.PAYPAL_CLIENT_SECRET,
+    PAYPAL_MODE: validate.PAYPAL_MODE
 }
 
 

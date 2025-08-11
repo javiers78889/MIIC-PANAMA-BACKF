@@ -46,6 +46,12 @@ export class Users extends Model {
 
     })
     auth: boolean
+    @Default(0)
+    @Column({
+        type: DataType.INTEGER,
+
+    })
+    cant_token: number
 
 
 }

@@ -3,8 +3,8 @@ import { Auth } from '../controllers/auth'
 import { body } from 'express-validator'
 import { handleInputErrors } from '../middleware/validationResult'
 import { Users } from '../model/user.model'
-import { limiter } from '../middleware/limiter'
 import { Mailer } from '../controllers/mailer'
+import { jwtGuard } from '../middleware/jwtValidation'
 
 
 const router = Router()
@@ -59,6 +59,15 @@ router.post('/new-user-password',
     handleInputErrors,
     auth.newUserPassword
 )
+
+router.post('/buy-token',
+    body('quantity').notEmpty().withMessage('La cantidad de tokens no puede ir vacia.'),
+    handleInputErrors,
+    jwtGuard,
+    auth.buyTtoken)
+router.post('/user-online',
+    jwtGuard,
+    auth.userOnline)
 
 
 

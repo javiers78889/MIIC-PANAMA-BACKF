@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "miic_user",
+    "password": "Dingo03200",
+    "database": "miic",
+    "host": "69.62.68.105",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "miic_user",
+    "password": "Dingo03200",
+    "database": "miic_test",
+    "host": "69.62.68.105",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "miic_user",
+    "password": "Dingo03200",
+    "database": "miic",
+    "host": "69.62.68.105",
+    "dialect": "postgres"
+  }
+}
