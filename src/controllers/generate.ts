@@ -19,22 +19,23 @@ class GenerateData {
         const decoded = jwt.decode(req.headers.authorization?.split(' ')[1]);
 
 
-        try {
 
-            if (typeof decoded === 'object') {
+        if (typeof decoded === 'object') {
+            try {
                 await this.reduceToken(decoded?.data as number, res)
+
+                const pPrincipal = await getChatCompletion(principal)
+                const newData = await getChatCompletion(refinando({ data: pPrincipal }))
+
+
+
+                res.status(200).json(newData)
+            } catch (error) {
+                console.log(error);
+                res.status(401).json({ error: "Token agotados" })
             }
-
-            const pPrincipal = await getChatCompletion(principal)
-            const newData = await getChatCompletion(refinando({ data: pPrincipal }))
-
-
-
-            res.status(200).json(newData)
-        } catch (error) {
-            console.log(error);
-            res.status(401).json({ error: "Token agotados" })
         }
+
 
     }
 
@@ -42,21 +43,17 @@ class GenerateData {
         const user = await Users.findOne({ where: { id } });
         if (!user) throw new Error("Usuario no encontrado");
 
-        const cantTokenNum = Number(user.cant_token);
+        const cantTokenNum = Number(user.dataValues.cant_token);
         let tokens = Number.isNaN(cantTokenNum) ? 0 : cantTokenNum;
-
         if (tokens <= 0) {
-            res.status(401).json({ message: "Token agotados" })
+            throw new Error("Token agotados")// envía respuesta y detiene ejecución
         }
 
-        if (cantTokenNum > 0) {
-            tokens = tokens - 1;
-        }
-
-
+        tokens = tokens - 1;
 
         await user.update({ cant_token: tokens });
     }
+
 
 
 
@@ -66,17 +63,21 @@ class GenerateData {
         const principal = suggest(req.body)
 
 
-        try {
 
-            if (typeof decoded === 'object') {
+        if (typeof decoded === 'object') {
+
+            try {
                 await this.reduceToken(decoded?.data as number, res)
+
+                const pPrincipal = await getChatCompletion(principal)
+                res.status(200).json(JSON.parse(pPrincipal))
             }
-            const pPrincipal = await getChatCompletion(principal)
-            res.status(200).json(JSON.parse(pPrincipal))
-        } catch (error) {
-            console.log(error);
-            res.status(401).json({ message: "Token agotados" })
+            catch (error) {
+                console.log(error);
+                res.status(401).json({ message: "Token agotados" })
+            }
         }
+
 
     }
 }
