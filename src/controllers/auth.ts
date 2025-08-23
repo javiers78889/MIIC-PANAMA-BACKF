@@ -188,7 +188,7 @@ export class Auth {
         try {
             const decoded = jwt.decode(req.headers.authorization?.split(' ')[1]);
             if (typeof decoded === 'object') {
-                const user = await this.userService.findOne({ where: { id: decoded.data }, attributes: ['name', 'cant_token'] });
+                const user = await this.userService.findOne({ where: { id: decoded.data }, attributes: ['name', 'cant_token','role'] });
 
                 res.json(user);
             } else {
