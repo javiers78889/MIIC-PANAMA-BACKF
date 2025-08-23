@@ -3,13 +3,11 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
- 
-    await queryInterface.addColumn('users', 'role',{
+   await queryInterface.addColumn('users', 'role',{
       type: Sequelize.STRING(80),
       allowNull: false,
       defaultValue: "user",
     });
-     
   },
 
   async down (queryInterface, Sequelize) {

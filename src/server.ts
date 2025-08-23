@@ -3,6 +3,7 @@ import cors from 'cors'
 import routerGenerate from "./Router/routerGenerate";
 import routerAuth from './Router/routerAuth'
 import db from "./config/db/db";
+import routerPost from "./Router/routePost";
 
 
 
@@ -27,6 +28,7 @@ server.use(cors({ origin: '*' }))
 server.use(express.json())
 server.use('/generate', routerGenerate)
 server.use('/auth', routerAuth)
+server.use('/posts',routerPost)
 
 
 export default server

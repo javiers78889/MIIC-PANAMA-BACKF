@@ -52,6 +52,11 @@ export class Users extends Model {
 
     })
     cant_token: number
+    @Column({
+        type: DataType.STRING(80),
+        allowNull: false
+    })
+    role: string
 
 
 }
