@@ -12,17 +12,23 @@ const router = Router()
 
 const post = new PostController(Posts, Users)
 
-router.post('/', 
+router.post('/',
     body('name').notEmpty().withMessage('El nombre no puede ir vacio'),
     body('url').notEmpty().withMessage('La url no puede ir vacia').isURL().withMessage('Debe ser una url valida'),
-    handleInputErrors, 
+    handleInputErrors,
     jwtGuard, post.createPost)
 
-router.get('/', 
-    body('name').notEmpty().withMessage('El nombre no puede ir vacio'),
-    body('url').notEmpty().withMessage('La url no puede ir vacia').isURL().withMessage('Debe ser una url valida'),
-    handleInputErrors, 
-    jwtGuard, post.getPosts)
+router.get('/',
+
+    post.getPosts)
+
+
+router.delete('/',
+    body('id').notEmpty().withMessage('El nombre no puede ir vacio').isNumeric().withMessage("El id debe ser numerico"),
+    handleInputErrors,
+    jwtGuard, post.DelePost)
+
+
 
 
 

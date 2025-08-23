@@ -47,6 +47,24 @@ export class PostController {
         } else {
             res.json(posts)
         }
-        
+
+    }
+
+    getPostbyId = async (id: number) => {
+        const find = await this.postService.findByPk(id)
+
+        return find
+    }
+    DelePost = async (req: Request, res: Response) => {
+
+        const { id } = req.body
+
+        const post = await this.getPostbyId(id)
+
+        if (post) {
+            await this.postService.destroy({ where: { id } })
+            res.status(201).json({ message: "Post eliminado correctamente" })
+        }
+
     }
 }
